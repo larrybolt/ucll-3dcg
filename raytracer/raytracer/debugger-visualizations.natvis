@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="math::Angle">
+    <DisplayString>{m_degrees,g} degrees</DisplayString>
+  </Type>
+  <Type Name="math::Vector&lt;2&gt;">
+    <DisplayString>Vector2D({m_coords[0],g}, {m_coords[1],g})</DisplayString>
+    <Expand>
+      <Item Name="x">m_coords[0]</Item>
+      <Item Name="y">m_coords[1]</Item>
+    </Expand>
+  </Type>
+  <Type Name="math::Point&lt;2&gt;">
+    <DisplayString>Point2D({m_coords[0],g}, {m_coords[1],g})</DisplayString>
+    <Expand>
+      <Item Name="x">m_coords[0]</Item>
+      <Item Name="y">m_coords[1]</Item>
+    </Expand>
+  </Type>
+  <Type Name="math::Vector&lt;3&gt;">
+    <DisplayString>Vector3D({m_coords[0],g}, {m_coords[1],g}, {m_coords[2],g})</DisplayString>
+    <Expand>
+      <Item Name="x">m_coords[0]</Item>
+      <Item Name="y">m_coords[1]</Item>
+      <Item Name="z">m_coords[2]</Item>
+    </Expand>
+  </Type>
+  <Type Name="math::Point&lt;3&gt;">
+    <DisplayString>Point3D({m_coords[0],g}, {m_coords[1],g}, {m_coords[2],g})</DisplayString>
+    <Expand>
+      <Item Name="x">m_coords[0]</Item>
+      <Item Name="y">m_coords[1]</Item>
+      <Item Name="z">m_coords[2]</Item>
+    </Expand>
+  </Type>
+</AutoVisualizer>

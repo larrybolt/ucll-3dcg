@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Full Optimization|Win32">
+      <Configuration>Release - Full Optimization</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Full Optimization|x64">
+      <Configuration>Release - Full Optimization</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Testing|Win32">
+      <Configuration>Testing</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Testing|x64">
+      <Configuration>Testing</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{91038B33-14FE-4EC4-A761-D26EBB65751D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>raytracer</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Testing|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Testing|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>NOMINMAX;ELPP_CUSTOM_COUT=std::cerr;ELPP_THREAD_SAFE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>EXCLUDE_SCRIPTING;NOMINMAX;ELPP_CUSTOM_COUT=std::cerr;ELPP_THREAD_SAFE;TEST_BUILD;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - Full Optimization|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NOMINMAX;ELPP_CUSTOM_COUT=std::cerr;ELPP_THREAD_SAFE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NOMINMAX;ELPP_CUSTOM_COUT=std::cerr;ELPP_THREAD_SAFE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <AdditionalIncludeDirectories>.</AdditionalIncludeDirectories>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <EnforceTypeConversionRules>true</EnforceTypeConversionRules>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <Profile>false</Profile>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="demos\basic-sample.cpp" />
+    <ClCompile Include="demos\demo.cpp" />
+    <ClCompile Include="math\angle.cpp" />
+    <ClCompile Include="animation\animation.cpp" />
+    <ClCompile Include="animation\duration.cpp" />
+    <ClCompile Include="animation\time-stamp.cpp" />
+    <ClCompile Include="command-line-parser.cpp" />
+    <ClCompile Include="imaging\bitmap-function.cpp" />
+    <ClCompile Include="app.cpp" />
+    <ClCompile Include="cameras\camera.cpp" />
+    <ClCompile Include="cameras\displaceable-camera.cpp" />
+    <ClCompile Include="cameras\perspective-camera.cpp" />
+    <ClCompile Include="materials\composition-material.cpp" />
+    <ClCompile Include="materials\material-properties.cpp" />
+    <ClCompile Include="materials\pattern-materials.cpp" />
+    <ClCompile Include="math\functions\easing\linear-easing-function.cpp" />
+    <ClCompile Include="math\functions\easing\stretch-easing-function.cpp" />
+    <ClCompile Include="math\functions\horizontal-lines-pattern.cpp" />
+    <ClCompile Include="math\plane.cpp" />
+    <ClCompile Include="math\quantize.cpp" />
+    <ClCompile Include="math\transformation-matrices.cpp" />
+    <ClCompile Include="performance\performance.cpp" />
+    <ClCompile Include="pipeline\animation-processor.cpp" />
+    <ClCompile Include="pipeline\base64-processor.cpp" />
+    <ClCompile Include="pipeline\renderer-processor.cpp" />
+    <ClCompile Include="pipeline\text-writer-consumer.cpp" />
+    <ClCompile Include="pipeline\wif-consumer.cpp" />
+    <ClCompile Include="pipeline\wif-processor.cpp" />
+    <ClCompile Include="primitives\primitive.cpp" />
+    <ClCompile Include="imaging\color-mapper.cpp" />
+    <ClCompile Include="lights\omnidirectional-point-light.cpp" />
+    <ClCompile Include="lights\point-light.cpp" />
+    <ClCompile Include="logging.cpp" />
+    <ClCompile Include="imaging\bitmap.cpp" />
+    <ClCompile Include="imaging\color.cpp" />
+    <ClCompile Include="imaging\bmp-format.cpp" />
+    <ClCompile Include="imaging\wif-format.cpp" />
+    <ClCompile Include="materials\material.cpp" />
+    <ClCompile Include="materials\uniform-material.cpp" />
+    <ClCompile Include="math\box.cpp" />
+    <ClCompile Include="math\matrix.cpp" />
+    <ClCompile Include="math\quadratic_equation.cpp" />
+    <ClCompile Include="math\functions\random-function.cpp" />
+    <ClCompile Include="math\rasterizer.cpp" />
+    <ClCompile Include="math\rectangle3d.cpp" />
+    <ClCompile Include="math\transformation3d.cpp" />
+    <ClCompile Include="math\ray.cpp" />
+    <ClCompile Include="primitives\plane-primitive.cpp" />
+    <ClCompile Include="primitives\decorator-primitive.cpp" />
+    <ClCompile Include="primitives\sphere-primitive.cpp" />
+    <ClCompile Include="math\rectangle2d.cpp" />
+    <ClCompile Include="primitives\transformer-primitive.cpp" />
+    <ClCompile Include="primitives\union-primitive.cpp" />
+    <ClCompile Include="raytracers\ray-tracer-v0.cpp" />
+    <ClCompile Include="renderers\renderer.cpp" />
+    <ClCompile Include="renderers\standard-renderer.cpp" />
+    <ClCompile Include="lights\light-ray.cpp" />
+    <ClCompile Include="samplers\sampler.cpp" />
+    <ClCompile Include="samplers\single-sampler.cpp" />
+    <ClCompile Include="scripting\animation-module.cpp" />
+    <ClCompile Include="scripting\cameras-module.cpp" />
+    <ClCompile Include="scripting\imaging-module.cpp" />
+    <ClCompile Include="scripting\lights-module.cpp" />
+    <ClCompile Include="scripting\materials-module.cpp" />
+    <ClCompile Include="scripting\math-module.cpp" />
+    <ClCompile Include="scripting\pipeline-module.cpp" />
+    <ClCompile Include="scripting\primitives-module.cpp" />
+    <ClCompile Include="scripting\raytracing-module.cpp" />
+    <ClCompile Include="scripting\rendering-module.cpp" />
+    <ClCompile Include="scripting\samplers-module.cpp" />
+    <ClCompile Include="scripting\scripting.cpp" />
+    <ClCompile Include="math\transformation2d.cpp" />
+    <ClCompile Include="tasks\lambda-task.cpp" />
+    <ClCompile Include="tasks\serial-task-scheduler.cpp" />
+    <ClCompile Include="tests\main.cpp" />
+    <ClCompile Include="util\base64.cpp" />
+    <ClCompile Include="util\beep.cpp" />
+    <ClCompile Include="util\misc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="animation\animation.h" />
+    <ClInclude Include="animation\animations.h" />
+    <ClInclude Include="animation\duration.h" />
+    <ClInclude Include="animation\ease-animation.h" />
+    <ClInclude Include="animation\interval-animation.h" />
+    <ClInclude Include="animation\time-stamp.h" />
+    <ClInclude Include="chaiscript\chaiscript.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_defines.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_stdlib.hpp" />
+    <ClInclude Include="chaiscript\chaiscript_threading.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\any.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bad_boxed_cast.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bind_first.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bootstrap.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\bootstrap_stl.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_cast.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_cast_helper.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_number.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\boxed_value.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\callable_traits.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\dispatchkit.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\dynamic_object.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\dynamic_object_detail.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\exception_specification.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\function_call.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\function_call_detail.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\handle_return.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\operators.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\proxy_constructors.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\proxy_functions.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\proxy_functions_detail.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\register_function.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\type_conversions.hpp" />
+    <ClInclude Include="chaiscript\dispatchkit\type_info.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_algebraic.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_common.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_engine.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_eval.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_parser.hpp" />
+    <ClInclude Include="chaiscript\language\chaiscript_prelude_docs.hpp" />
+    <ClInclude Include="chaiscript\utility\json.hpp" />
+    <ClInclude Include="chaiscript\utility\json_wrap.hpp" />
+    <ClInclude Include="chaiscript\utility\utility.hpp" />
+    <ClInclude Include="command-line-processor.h" />
+    <ClInclude Include="demos\basic-sample.h" />
+    <ClInclude Include="command-line-parser.h" />
+    <ClInclude Include="demos\demo.h" />
+    <ClInclude Include="demos\demos.h" />
+    <ClInclude Include="materials\composition-material.h" />
+    <ClInclude Include="imaging\bitmap-function.h" />
+    <ClInclude Include="cameras\camera.h" />
+    <ClInclude Include="cameras\cameras.h" />
+    <ClInclude Include="cameras\displaceable-camera.h" />
+    <ClInclude Include="cameras\perspective-camera.h" />
+    <ClInclude Include="Catch.h" />
+    <ClInclude Include="data-structures\grid.h" />
+    <ClInclude Include="imaging\bmp-format.h" />
+    <ClInclude Include="materials\pattern-materials.h" />
+    <ClInclude Include="math\coordinate-systems.h" />
+    <ClInclude Include="math\functions\constant.h" />
+    <ClInclude Include="math\functions\easing-function.h" />
+    <ClInclude Include="math\functions\easing\linear-easing-function.h" />
+    <ClInclude Include="math\functions\easing\stretch-easing-function.h" />
+    <ClInclude Include="math\functions\horizontal-lines-pattern.h" />
+    <ClInclude Include="math\functions\identity.h" />
+    <ClInclude Include="math\plane.h" />
+    <ClInclude Include="math\quantize.h" />
+    <ClInclude Include="math\transformation-matrices.h" />
+    <ClInclude Include="math\vector.h" />
+    <ClInclude Include="math\point.h" />
+    <ClInclude Include="performance\performance.h" />
+    <ClInclude Include="pipeline\animation-processor.h" />
+    <ClInclude Include="pipeline\base64-processor.h" />
+    <ClInclude Include="pipeline\consumer.h" />
+    <ClInclude Include="pipeline\null-consumer.h" />
+    <ClInclude Include="pipeline\pipeline-builder.h" />
+    <ClInclude Include="pipeline\pipeline.h" />
+    <ClInclude Include="pipeline\pipelines.h" />
+    <ClInclude Include="pipeline\processor.h" />
+    <ClInclude Include="pipeline\producer.h" />
+    <ClInclude Include="pipeline\renderer-processor.h" />
+    <ClInclude Include="pipeline\text-writer-consumer.h" />
+    <ClInclude Include="pipeline\wif-consumer.h" />
+    <ClInclude Include="pipeline\wif-processor.h" />
+    <ClInclude Include="raytracers\trace-result.h" />
+    <ClInclude Include="easylogging++.h" />
+    <ClInclude Include="imaging\bitmap.h" />
+    <ClInclude Include="imaging\color-mapper.h" />
+    <ClInclude Include="imaging\color.h" />
+    <ClInclude Include="imaging\wif-format.h" />
+    <ClInclude Include="lights\light-source.h" />
+    <ClInclude Include="lights\lights.h" />
+    <ClInclude Include="lights\omnidirectional-point-light.h" />
+    <ClInclude Include="lights\point-light.h" />
+    <ClInclude Include="materials\material-properties.h" />
+    <ClInclude Include="materials\material.h" />
+    <ClInclude Include="materials\materials.h" />
+    <ClInclude Include="materials\uniform-material.h" />
+    <ClInclude Include="math\angle.h" />
+    <ClInclude Include="math\approx.h" />
+    <ClInclude Include="math\box.h" />
+    <ClInclude Include="math\function.h" />
+    <ClInclude Include="math\functions\bool-mapper.h" />
+    <ClInclude Include="math\functions\easing-functions.h" />
+    <ClInclude Include="math\functions.h" />
+    <ClInclude Include="math\functions\patterns.h" />
+    <ClInclude Include="math\interval.h" />
+    <ClInclude Include="math\interval-mapper.h" />
+    <ClInclude Include="math\matrix.h" />
+    <ClInclude Include="math\functions\noise.h" />
+    <ClInclude Include="math\misc.h" />
+    <ClInclude Include="math\quadratic_equation.h" />
+    <ClInclude Include="math\functions\random-function.h" />
+    <ClInclude Include="math\rasterizer.h" />
+    <ClInclude Include="math\ray.h" />
+    <ClInclude Include="math\rectangle3d.h" />
+    <ClInclude Include="math\transformation3d.h" />
+    <ClInclude Include="logging.h" />
+    <ClInclude Include="primitives\hit-position.h" />
+    <ClInclude Include="primitives\plane-primitive.h" />
+    <ClInclude Include="primitives\primitives.h" />
+    <ClInclude Include="primitives\decorator-primitive.h" />
+    <ClInclude Include="primitives\hit.h" />
+    <ClInclude Include="primitives\primitive.h" />
+    <ClInclude Include="primitives\sphere-primitive.h" />
+    <ClInclude Include="primitives\transformer-primitive.h" />
+    <ClInclude Include="primitives\union-primitive.h" />
+    <ClInclude Include="raytracers\ray-tracer-v0.h" />
+    <ClInclude Include="raytracers\ray-tracer.h" />
+    <ClInclude Include="raytracers\ray-tracers.h" />
+    <ClInclude Include="raytracers\scene.h" />
+    <ClInclude Include="renderers\renderer.h" />
+    <ClInclude Include="renderers\renderers.h" />
+    <ClInclude Include="renderers\standard-renderer.h" />
+    <ClInclude Include="lights\light-ray.h" />
+    <ClInclude Include="samplers\sampler.h" />
+    <ClInclude Include="samplers\samplers.h" />
+    <ClInclude Include="samplers\single-sampler.h" />
+    <ClInclude Include="data-structures\array.h" />
+    <ClInclude Include="scripting\animation-module.h" />
+    <ClInclude Include="scripting\cameras-module.h" />
+    <ClInclude Include="scripting\imaging-module.h" />
+    <ClInclude Include="scripting\lights-module.h" />
+    <ClInclude Include="scripting\materials-module.h" />
+    <ClInclude Include="scripting\math-module.h" />
+    <ClInclude Include="scripting\pipeline-module.h" />
+    <ClInclude Include="scripting\primitives-module.h" />
+    <ClInclude Include="scripting\raytracing-module.h" />
+    <ClInclude Include="scripting\rendering-module.h" />
+    <ClInclude Include="scripting\samplers-module.h" />
+    <ClInclude Include="scripting\scripting-util.h" />
+    <ClInclude Include="scripting\scripting.h" />
+    <ClInclude Include="math\transformation2d.h" />
+    <ClInclude Include="tasks\lambda-task.h" />
+    <ClInclude Include="tasks\serial-task-scheduler.h" />
+    <ClInclude Include="tasks\task-helpers.h" />
+    <ClInclude Include="tasks\task-scheduler.h" />
+    <ClInclude Include="tasks\task-schedulers.h" />
+    <ClInclude Include="tasks\task.h" />
+    <ClInclude Include="tasks\tasks.h" />
+    <ClInclude Include="util\base64.h" />
+    <ClInclude Include="util\beep.h" />
+    <ClInclude Include="util\lazy.h" />
+    <ClInclude Include="util\misc.h" />
+    <ClInclude Include="data-structures\position.h" />
+    <ClInclude Include="math\rectangle2d.h" />
+    <ClInclude Include="version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="debugger-visualizations.natvis" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
