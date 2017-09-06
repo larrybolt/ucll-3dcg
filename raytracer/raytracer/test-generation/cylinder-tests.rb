@@ -1,7 +1,7 @@
 require './shared.rb'
 
 
-test_file 'primitives/cylinder-along-x' do
+test_file 'primitives/cylinder/cylinder-along-x' do
   template do
     <<-'END'
       #ifdef TEST_BUILD
@@ -38,6 +38,12 @@ test_file 'primitives/cylinder-along-x' do
             REQUIRE(!cylinder->find_first_positive_hit(ray, &hit));
         }
       END
+    end
+
+    test_case do |data|
+      data.ray_origin = "(0, 0, 0)"
+      data.ray_direction = "(1, 0, 0)"
+      data.t = "10000000"
     end
 
     [1.01, 2, -1.01, -2].each do |y|
@@ -186,15 +192,13 @@ test_file 'primitives/cylinder-along-x' do
   test_suite do
     template do
       <<-END
-        TEST_CASE("[CylinderX] All hits with ray #{ray_origin} + #{ray_direction} * t", "[Sphere]")
+        TEST_CASE("[CylinderX] All hits with ray #{ray_origin} + #{ray_direction} * t", "[Cylinder]")
         {
             Point3D ray_origin#{ray_origin};
             Vector3D ray_direction#{ray_direction};
 
             auto cylinder = raytracer::primitives::cylinder_along_x();
             Ray ray(ray_origin, ray_direction);
-
-            Hit hit;
 
             auto hits = cylinder->find_all_hits(ray);
             REQUIRE(hits.size() == 2);
@@ -211,6 +215,68 @@ test_file 'primitives/cylinder-along-x' do
             data.ray_origin = "(#{x},0,#{z})"
             data.ray_direction = "(0,0,#{-dz})"
             data.expected_ts = [ (z - 1.0) / dz, (z + 1.0) / dz ]
+          end
+        end
+      end
+    end
+  end
+
+  test_suite do
+    template do
+      <<-END
+        TEST_CASE("[CylinderX] Outward pointing normal vector at first hit with ray #{ray_origin} through (0,0,0)", "[Cylinder]")
+        {
+            Point3D ray_origin#{ray_origin};
+            Vector3D ray_direction = Point3D(0,0,0) - ray_origin;
+
+            auto cylinder = raytracer::primitives::cylinder_along_x();
+            Ray ray(ray_origin, ray_direction);
+
+            Hit hit;
+            REQUIRE(cylinder->find_first_positive_hit(ray, &hit));
+
+            Vector3D expected_normal(0, hit.position.y(), hit.position.z());
+            CHECK(hit.normal == approx(expected_normal));
+        }
+      END
+    end
+    
+    [-5, 0, 8].each do |x|
+      [-3, 1.4, 6].each do |y|
+        [-3, 2, 8].each do |z|
+          test_case do |data|
+            data.ray_origin = "(#{x},#{y},#{z})"
+          end
+        end
+      end
+    end
+  end
+
+  test_suite do
+    template do
+      <<-END
+        TEST_CASE("[CylinderX] Inward pointing normal vector at first hit with ray #{ray_origin} through (0,0,0)", "[Cylinder]")
+        {
+            Point3D ray_origin#{ray_origin};
+            Vector3D ray_direction = Point3D(0,0,0) - ray_origin;
+
+            auto cylinder = raytracer::primitives::cylinder_along_x();
+            Ray ray(ray_origin, ray_direction);
+
+            Hit hit;
+            REQUIRE(cylinder->find_first_positive_hit(ray, &hit));
+
+            Vector3D expected_normal(0, -hit.position.y(), -hit.position.z());
+            CHECK(hit.normal == approx(expected_normal));
+        }
+      END
+    end
+    
+    [-5, 0, 8].each do |x|
+      [-0.3, 0.1].each do |y|
+        [-0.1, 0.2].each do |z|
+          test_case do |data|
+            data.ray_origin = "(#{x},#{y},#{z})"
           end
         end
       end

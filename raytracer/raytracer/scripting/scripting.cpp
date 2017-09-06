@@ -15,6 +15,7 @@
 #include "easylogging++.h"
 #include "chaiscript/chaiscript.hpp"
 #include "chaiscript/chaiscript_stdlib.hpp"
+#include <iostream>
 
 using namespace raytracer::scripting;
 using namespace chaiscript;
@@ -75,12 +76,25 @@ namespace
             CLOG(ERROR, "studio") << e.reason;
         }
     }
+
+    bool file_exists(const std::string& path)
+    {
+        std::ifstream file(path);
+
+        return file.good();
+    }
 }
 
 
 void raytracer::scripting::run_script(const std::string& path)
 {
     auto chai = initialize_chai();
+
+    if (!file_exists(path))
+    {
+        LOG(ERROR) << "File " << path << " does not exist!" << std::endl;
+        abort();
+    }
 
     try
     {

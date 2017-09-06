@@ -1,10 +1,13 @@
 #include "math/quadratic_equation.h"
+#include "math/approx.h"
 #include <cmath>
 #include <assert.h>
 
 
 math::QuadraticEquation::QuadraticEquation(double a, double b, double c)
 {
+    assert(a != approx(0.0));
+
     double discriminant = b * b - 4 * a * c;
 
     if (discriminant < 0)

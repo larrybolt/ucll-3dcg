@@ -1,7 +1,7 @@
 require './shared.rb'
 
 
-test_file 'primitives/cone' do
+test_file 'primitives/cone/cone' do
   template do
     <<-'END'
       #ifdef TEST_BUILD
