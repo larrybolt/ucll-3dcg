@@ -76,6 +76,12 @@ namespace
     }
 }
 
+/// <summary>
+/// Processes the command line arguments.
+/// The command line arguments form a series of commands to be executed in order by the ray tracer.
+/// For example, using "-s a.chai -s b.chai --beep" tells
+/// the ray tracer to render a.chai, then b.chai, and finally emit a beep (so that you know it's done working.)
+/// </summary>
 void process_command_line_arguments(int argc, char** argv)
 {
     CommandLineParser parser;
@@ -97,9 +103,11 @@ int main(int argc, char** argv)
     TIMED_FUNC(timer);
 
     logging::configure();
+    
     process_command_line_arguments(argc, argv);
 
-    // demos::basic_sample(pipeline::wif("test.wif"));
+    // Renders a basic sample and writes it to a file named "test.wif". You may have to look around a bit to find it, but it will definitely be somewhere in the project's directory structure. You can use an absolute path to avoid having to look for it.
+    demos::basic_sample(pipeline::wif("test.wif"));
 }
 
 #endif
