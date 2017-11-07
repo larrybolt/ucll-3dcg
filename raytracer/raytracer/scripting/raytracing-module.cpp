@@ -14,14 +14,16 @@ namespace
 {
     struct RaytracerLibrary
     {
-        RayTracer v0() const { return raytracer::raytracers::v0(); }
+		RayTracer v0() const { return raytracer::raytracers::v0(); }
+		RayTracer v1() const { return raytracer::raytracers::v1(); }
 
         RayTracer v(int version) const
         {
             switch (version)
             {
 #           define DISPATCH(N) case N: return v ## N()
-                DISPATCH(0);
+				DISPATCH(0);
+				DISPATCH(1);
 #           undef DISPATCH
 
             default:
@@ -54,8 +56,9 @@ ModulePtr raytracer::scripting::_private_::create_raytracing_module()
 
     // Expose each member of the library
 #   define BIND(NAME)   module->add(fun(&RaytracerLibrary::NAME), #NAME)
-    BIND(v0);
-    BIND(v);
+	BIND(v0);
+	BIND(v1);
+	BIND(v);
 #   undef BIND
 
     // Expose create_scene under the same name

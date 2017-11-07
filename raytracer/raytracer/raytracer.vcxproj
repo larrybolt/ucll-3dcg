@@ -347,6 +347,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="demos\basic-sample.cpp" />
+    <ClCompile Include="demos\basic-sample2.cpp" />
     <ClCompile Include="demos\demo.cpp" />
     <ClCompile Include="math\angle.cpp" />
     <ClCompile Include="animation\animation.cpp" />
@@ -400,6 +401,7 @@
     <ClCompile Include="primitives\transformer-primitive.cpp" />
     <ClCompile Include="primitives\union-primitive.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v0.cpp" />
+    <ClCompile Include="raytracers\ray-tracer-v1.cpp" />
     <ClCompile Include="renderers\renderer.cpp" />
     <ClCompile Include="renderers\standard-renderer.cpp" />
     <ClCompile Include="lights\light-ray.cpp" />
@@ -471,6 +473,7 @@
     <ClInclude Include="chaiscript\utility\utility.hpp" />
     <ClInclude Include="demos\basic-sample.h" />
     <ClInclude Include="command-line-parser.h" />
+    <ClInclude Include="demos\basic-sample2.h" />
     <ClInclude Include="demos\demo.h" />
     <ClInclude Include="demos\demos.h" />
     <ClInclude Include="materials\composition-material.h" />
@@ -509,6 +512,7 @@
     <ClInclude Include="pipeline\text-writer-consumer.h" />
     <ClInclude Include="pipeline\wif-consumer.h" />
     <ClInclude Include="pipeline\wif-processor.h" />
+    <ClInclude Include="raytracers\ray-tracer-v1.h" />
     <ClInclude Include="raytracers\trace-result.h" />
     <ClInclude Include="easylogging++.h" />
     <ClInclude Include="imaging\bitmap.h" />
