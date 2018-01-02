@@ -1,4 +1,5 @@
 #include "raytracers/ray-tracer-v1.h"
+#include "raytracers/ray-tracers.h"
 
 using namespace imaging;
 using namespace math;
@@ -25,10 +26,9 @@ TraceResult raytracer::raytracers::_private_::RayTracerV1::trace(const Scene& sc
         // The t-value indicates where the ray/scene intersection took place.
         // You can use ray.at(t) to find the xyz-coordinates in space.
         double t = hit.t;
-		Color hit_color = hit.material->at(hit.local_position).ambient;
 
         // Group all this data into a TraceResult object.
-        return TraceResult(hit_color, group_id, ray, t);
+        return TraceResult(compute_ambient(hit.material->at(hit.local_position)), group_id, ray, t);
     }
     else
     {
@@ -37,6 +37,11 @@ TraceResult raytracer::raytracers::_private_::RayTracerV1::trace(const Scene& sc
         // which is basically the same as returning black
         return TraceResult::no_hit(ray);
     }
+}
+
+Color raytracer::raytracers::_private_::RayTracerV1::compute_ambient(const MaterialProperties& props) const
+{
+	return props.ambient;
 }
 
 raytracer::RayTracer raytracer::raytracers::v1()
