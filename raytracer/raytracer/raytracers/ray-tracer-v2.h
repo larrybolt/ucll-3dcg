@@ -1,6 +1,6 @@
 #pragma once
 
-#include "raytracers/ray-tracer.h"
+#include "raytracers/ray-tracer-v1.h"
 #include <memory>
 
 
@@ -21,7 +21,7 @@ namespace raytracer
 			protected:
 				imaging::Color process_light_ray(const Scene&, const MaterialProperties&, const Hit&, const math::Ray&, const LightRay&) const;
 			protected:
-				imaging::Color compute_diffuse(const MaterialProperties&, const Hit&, const Ray&, const LightRay&) const;
+				imaging::Color compute_diffuse(const MaterialProperties&, const Hit&, const math::Ray&, const LightRay&) const;
 			};
 		
 		}

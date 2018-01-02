@@ -1,5 +1,6 @@
 #include "raytracers/ray-tracer-v2.h"
 #include "raytracers/ray-tracers.h"
+#include "math/functions/random-function.h"
 
 using namespace imaging;
 using namespace math;
@@ -59,7 +60,7 @@ Color raytracer::raytracers::_private_::RayTracerV2::process_light_source(const 
 	Color result = colors::black();
 
 	//Ask the light source to enumerate all light rays that reach hit.position.
-	for each (LightRay lightray in light->lightrays_to(hit.local_position))
+	for each (LightRay lightray in light->lightrays_to(hit.position))
 	{
 		//Iterate over each of these light rays. Give each to process_light_ray. Add the return values to result.
 		result += process_light_ray(scene, props, hit, ray, lightray);
@@ -85,12 +86,12 @@ Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const Mater
 	Color result = colors::black();
 
 	//Compute the cosine of the angle alpha
-	double cosAlpha = (ray.origin - hit.local_position.xyz).normalized().dot(hit.normal);
+	double cosAlpha = ((lightray.ray.origin - hit.position).normalized()).dot(hit.normal);
 
 	//Translate the mathematical formula for diffuse lighting into code
 	if (cosAlpha > 0)
 	{
-		result += cosAlpha * lightray.color * props.ambient;
+		result += (cosAlpha * lightray.color * props.ambient);
 	}
 
 	return result;
