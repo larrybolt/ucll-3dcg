@@ -1,4 +1,5 @@
 #include "raytracers/ray-tracer-v1.h"
+#include "raytracers/ray-tracers.h"
 
 using namespace imaging;
 using namespace math;
