@@ -1,23 +1,23 @@
 #include "raytracers/ray-tracer-v3.h"
+#include "raytracers/ray-tracer-v2.h"
 #include "raytracers/ray-tracers.h"
 
 using namespace imaging;
 using namespace math;
 using namespace raytracer;
 
-Color raytracers::_private_::RayTracerV3::process_light_ray(const Scene &scene, const MaterialProperties &props, const Hit &hit, const math::Ray &ray, const LightRay &lightray) const
+Color raytracer::raytracers::_private_::RayTracerV3::process_light_ray(const Scene& scene, const MaterialProperties& props, const Hit& hit, const math::Ray& ray, const LightRay& lightray) const
 {
-
 	//Call the base class's (RayTracerV2) version of process_light_ray.
-	Color result = raytracers::_private_::RayTracerV2::process_light_ray(scene, props, hit, ray, lightray);
+	Color result = RayTracerV2::process_light_ray(scene, props, hit, ray, lightray);
 
 	//Call compute_specular and add its return value to result.
-	result += compute_diffuse(props, hit, ray, lightray);
+	result += compute_specular(props, hit, ray, lightray);
 
 	return result;
 }
 
-Color raytracers::_private_::RayTracerV3::compute_diffuse(const MaterialProperties &props, const Hit &hit, const math::Ray &ray, const LightRay &lightray) const
+Color raytracer::raytracers::_private_::RayTracerV3::compute_specular(const MaterialProperties& props, const Hit& hit, const math::Ray& ray, const LightRay& lightray) const
 {
 	Color result = colors::black();
 
@@ -37,7 +37,7 @@ Color raytracers::_private_::RayTracerV3::compute_diffuse(const MaterialProperti
 
 	if (cos_Alpha > 0)
 	{
-		result += lightray.color * props.ambient * pow(cos_Alpha, props.specular_exponent);
+		result += (lightray.color * props.specular * pow(cos_Alpha, props.specular_exponent));
 	}
 
 	return result;

@@ -90,7 +90,7 @@ Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const Mater
 	//Translate the mathematical formula for diffuse lighting into code
 	if (cosAlpha > 0)
 	{
-		result += (cosAlpha * lightray.color * props.ambient);
+		result += (cosAlpha * lightray.color * props.diffuse);
 	}
 
 	return result;
