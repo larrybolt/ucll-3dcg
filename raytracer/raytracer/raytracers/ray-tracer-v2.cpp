@@ -85,7 +85,7 @@ Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const Mater
 	Color result = colors::black();
 
 	//Compute the cosine of the angle alpha
-	double cosAlpha = ((ray.origin - hit.position).normalized()).dot(hit.normal);
+	double cosAlpha = ((lightray.ray.origin - hit.position).normalized()).dot(hit.normal);
 
 	//Translate the mathematical formula for diffuse lighting into code
 	if (cosAlpha > 0)
