@@ -1,15 +1,18 @@
 #include "raytracers/ray-tracer-v4.h"
-#include "raytracers/ray-tracer-v3.h"
 #include "raytracers/ray-tracers.h"
+#include <iostream>
 
 using namespace imaging;
 using namespace math;
 using namespace raytracer;
+using namespace std;
 
-imaging::Color raytracer::raytracers::_private_::RayTracerV4::process_light_ray(const Scene &scene, const MaterialProperties &props, const Hit &hit, const math::Ray &ray, const LightRay &lightray) const
+Color raytracer::raytracers::_private_::RayTracerV4::process_light_ray(const Scene& scene, const MaterialProperties& props, const Hit& hit, const math::Ray& ray, const LightRay& lightray) const
 {
 	// Find the intersection between the light ray and the scene.
-	if (0 <= hit.t && hit.t < 1)
+	double t = hit.t;
+
+	if ((0 <= t) && (t < 1))
 	{
 		// If there's a hit where 0 <= t < 1, return black
 		return colors::black();
