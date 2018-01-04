@@ -6,7 +6,7 @@ using namespace math;
 using namespace raytracer;
 
 
-TraceResult raytracer::raytracers::_private_::RayTracerV2::trace(const Scene& scene, const Ray& ray) const
+TraceResult raytracer::raytracers::_private_::RayTracerV2::trace(const Scene &scene, const Ray &ray) const
 {
 	Hit hit;
 
@@ -39,7 +39,7 @@ TraceResult raytracer::raytracers::_private_::RayTracerV2::trace(const Scene& sc
 	}
 }
 
-Color raytracer::raytracers::_private_::RayTracerV2::process_lights(const Scene& scene, const MaterialProperties& props, const Hit& hit, const math::Ray& ray) const
+Color raytracer::raytracers::_private_::RayTracerV2::process_lights(const Scene &scene, const MaterialProperties &props, const Hit &hit, const math::Ray &ray) const
 {
 	//Start with a fresh Color result set to black.
 	Color result = colors::black();
@@ -53,7 +53,7 @@ Color raytracer::raytracers::_private_::RayTracerV2::process_lights(const Scene&
 	return result;
 }
 
-Color raytracer::raytracers::_private_::RayTracerV2::process_light_source(const Scene&scene, const MaterialProperties&props, const Hit&hit, const math::Ray& ray, LightSource light) const
+Color raytracer::raytracers::_private_::RayTracerV2::process_light_source(const Scene &scene, const MaterialProperties &props, const Hit &hit, const math::Ray &ray, LightSource light) const
 {
 	//Initialize a local variable result of type Color to black.
 	Color result = colors::black();
@@ -68,7 +68,7 @@ Color raytracer::raytracers::_private_::RayTracerV2::process_light_source(const 
 	return result;
 }
 
-Color raytracer::raytracers::_private_::RayTracerV2::process_light_ray(const Scene& scene, const MaterialProperties& props, const Hit& hit, const math::Ray& ray, const LightRay& lightray) const
+Color raytracer::raytracers::_private_::RayTracerV2::process_light_ray(const Scene &scene, const MaterialProperties &props, const Hit &hit, const math::Ray &ray, const LightRay &lightray) const
 {
 	//Initialize local variable result to black.
 	Color result = colors::black();
@@ -79,7 +79,7 @@ Color raytracer::raytracers::_private_::RayTracerV2::process_light_ray(const Sce
 	return result;
 }
 
-Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const MaterialProperties& props, const Hit& hit, const Ray& ray, const LightRay& lightray) const
+Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const MaterialProperties &props, const Hit &hit, const Ray &ray, const LightRay &lightray) const
 {
 	//Initialize local variable result to black.
 	Color result = colors::black();

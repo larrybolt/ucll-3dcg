@@ -6,7 +6,7 @@ using namespace math;
 using namespace raytracer;
 
 
-TraceResult raytracer::raytracers::_private_::RayTracerV1::trace(const Scene& scene, const Ray& ray) const
+TraceResult raytracer::raytracers::_private_::RayTracerV1::trace(const Scene &scene, const Ray &ray) const
 {
     Hit hit;
 
@@ -39,7 +39,7 @@ TraceResult raytracer::raytracers::_private_::RayTracerV1::trace(const Scene& sc
     }
 }
 
-Color raytracer::raytracers::_private_::RayTracerV1::compute_ambient(const MaterialProperties& props) const
+Color raytracer::raytracers::_private_::RayTracerV1::compute_ambient(const MaterialProperties &props) const
 {
 	return props.ambient;
 }
