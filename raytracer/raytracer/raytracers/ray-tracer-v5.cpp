@@ -6,6 +6,7 @@ using namespace imaging;
 using namespace math;
 using namespace raytracer;
 
+// Override trace to call new trace with parameter weight initialized at 1.0
 TraceResult raytracer::raytracers::_private_::RayTracerV5::trace(const Scene &scene, const math::Ray &ray) const
 {
 	Hit hit;
@@ -26,9 +27,12 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV5::trace(const Scene 
 {
 	Color result = colors::black();
 
+	// Prevent infinite reflection from happening with the weight parameter
 	if (weight > 0.01)
 	{
 		Hit reflect;
+
+		// Find the intersection between the reflection ray and the scene
 		if (scene.root->find_first_positive_hit(ray, &reflect))
 		{
 			double t = reflect.t;
@@ -36,6 +40,8 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV5::trace(const Scene 
 			
 			result += compute_ambient(props);
 			result += process_lights(scene, props, reflect, ray);
+
+			// Call compute_reflection and add it to the result
 			result += compute_reflection(scene, props, ray, reflect, weight);
 		}
 	}
@@ -50,10 +56,18 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV5::compute_reflection
 	if (props.reflectivity > 0)
 	{
 		Vector3D direction_Incoming = (reflect.position - ray.origin).normalized();
+
+		// Calculate the direction of the reflection
 		Vector3D direction_Reflected = direction_Incoming.reflect_by(reflect.normal);
-		Point3D new_Origin = ray.at(reflect.t);
-		Ray reflect = Ray(new_Origin, direction_Reflected);
-		result += (props.reflectivity * trace(scene, reflect, props.reflectivity * weight));
+
+		// Calculate the origin of the reflection ray
+		Point3D new_Origin = ray.at(reflect.t) + 0.00000001 * direction_Reflected;
+
+		// Create a new ray with the new origin and the reflection direction
+		Ray reflection = Ray(new_Origin, direction_Reflected);
+
+		// Call trace with the new reflection ray
+		result += (props.reflectivity * trace(scene, reflection, props.reflectivity * weight));
 	}
 	return result;
 }
