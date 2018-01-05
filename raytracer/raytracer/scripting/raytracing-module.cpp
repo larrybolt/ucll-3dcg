@@ -20,7 +20,7 @@ namespace
 		RayTracer v3() const { return raytracer::raytracers::v3(); }
 		RayTracer v4() const { return raytracer::raytracers::v4(); }
 		RayTracer v5() const { return raytracer::raytracers::v5(); }
-		RayTracer v6() const { return raytracer::raytracers::v5(); }
+		RayTracer v6() const { return raytracer::raytracers::v6(); }
 
         RayTracer v(int version) const
         {
