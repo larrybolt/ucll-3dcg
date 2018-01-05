@@ -30,3 +30,5 @@ Overview of who is working on or has finished which features.
 #### Doing:
 
 #### Done:
+
+- Ray Tracer V1 (level 1)
