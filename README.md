@@ -11,6 +11,8 @@ Overview of who is working on or has finished which features.
 
 #### Doing:
 
+- Directional Lights
+
 #### Done:
 
 - Ray Tracer V2 (level 2)
