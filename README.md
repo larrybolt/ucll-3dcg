@@ -19,7 +19,7 @@ Overview of who is working on or has finished which features.
 - Ray Tracer V3 (level 2)
 - Ray Tracer V4 (level 2)
 - Ray Tracer V5 (level 3)
-- Ray Tracer V5 (level 4)
+- Ray Tracer V6 (level 4)
 
 ### Michiel
 
