@@ -12,7 +12,7 @@ Overview of who is working on or has finished which features.
 #### Doing:
 
 - Triangle
-- Scaling
+- XZ-Plane
 
 #### Done:
 
