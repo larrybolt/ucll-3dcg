@@ -12,6 +12,7 @@ Overview of who is working on or has finished which features.
 #### Doing:
 
 - Triangle
+- UZ-Square + Optimization
 
 #### Done:
 
