@@ -10,19 +10,23 @@ namespace
 	class SquareYZImplementation : public raytracer::primitives::_private_::PrimitiveImplementation
 	{
 	public:
-		/*
-		bool find_first_positive_hit(const math::Ray& ray, Hit* hit) const override
+		
+		bool find_first_positive_hit(const Ray& ray, Hit* hit) const override
 		{
+
 			auto hits = find_all_hits(ray);
-			auto found = hits.back();
-			if (found->t > 0 && found->t < hit->t)
+			if (hits.size() > 0)
 			{
-				*hit = *found;
-				return true;
+				auto found = hits.back();
+				if (found->t > 0 && found->t < hit->t)
+				{
+					*hit = *found;
+					return true;
+				}
 			}
 			return false;
 		}
-		*/
+		
 
 		std::vector<std::shared_ptr<Hit>> find_all_hits(const Ray& ray) const override
 		{
