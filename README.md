@@ -12,7 +12,6 @@ Overview of who is working on or has finished which features.
 #### Doing:
 
 - Triangle + optimized
-- YZ-Square Optimized
 
 #### Done:
 
@@ -24,6 +23,7 @@ Overview of who is working on or has finished which features.
 - XZ-Plane (level 1)
 - XZ-Plane Optimized (level 1)
 - YZ-Square (level 1)
+- YZ-Square Optimized (level 1)
 
 ### Michiel
 
