@@ -11,19 +11,20 @@ Overview of who is working on or has finished which features.
 
 #### Doing:
 
-- Triangle + optimized
 
 #### Done:
 
-- Ray Tracer V2 (level 2)
-- Ray Tracer V3 (level 2)
-- Ray Tracer V4 (level 2)
-- Ray Tracer V5 (level 3)
-- Ray Tracer V6 (level 4)
 - XZ-Plane (level 1)
 - XZ-Plane Optimized (level 1)
 - YZ-Square (level 1)
 - YZ-Square Optimized (level 1)
+- Triangle Optimized (level 1)
+- Ray Tracer V2 (level 2)
+- Ray Tracer V3 (level 2)
+- Ray Tracer V4 (level 2)
+- Triangle (level 2)
+- Ray Tracer V5 (level 3)
+- Ray Tracer V6 (level 4)
 
 ### Michiel
 
