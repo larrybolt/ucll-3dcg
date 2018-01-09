@@ -13,12 +13,12 @@ namespace
 		TriangleImplementation(const Point3D& v0, const Point3D& v1, const Point3D& v2)
 			: m_v0(v0), m_v1(v1), m_v2(v2) {}
 
-		bool find_first_positive_hit(const Ray& ray, Hit* hit)
+		bool find_first_positive_hit(const Ray& ray, Hit* hit) const override
 		{
 			auto hits = find_all_hits(ray);
 			if (hits.size() > 0)
 			{
-				auto found = hits.back();
+				auto found = hits.front();
 				if (found->t > 0 && found->t < hit->t)
 				{
 					*hit = *found;
@@ -34,17 +34,17 @@ namespace
 			std::vector<std::shared_ptr<Hit>> hits;
 
 			// Möller-Trumbore intersection algorithm, source: https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm
-			const double EPSILON = 0.0000001;
+			double EPSILON = 0.0000001;
 			Vector3D vertex0 = Vector3D(m_v0.x(), m_v0.y(), m_v0.z());
 			Vector3D vertex1 = Vector3D(m_v1.x(), m_v1.y(), m_v1.z());
 			Vector3D vertex2 = Vector3D(m_v2.x(), m_v2.y(), m_v2.z());;
-			Vector3D edge1, edge2, s, h, q;
+			Vector3D edge1, edge2, h, s, q;
 			double a, f, u, v;
 			edge1 = vertex1 - vertex0;
 			edge2 = vertex2 - vertex0;
 			h = ray.direction.cross(edge2);
 			a = edge1.dot(h);
-			if (a > -EPSILON && a < EPSILON)
+			if (a < EPSILON)
 			{
 				return hits;
 			}
@@ -63,11 +63,11 @@ namespace
 				return hits;
 			}
 			double t = f * edge2.dot(q);
-			if (t > EPSILON)
+			if (t > 0.0)
 			{
 				auto hit = std::make_shared<Hit>();
 				initialize_hit(hit.get(), ray, t);
-				hit->normal = edge2.cross(edge1);
+				hit->normal = -edge2.cross(edge1);
 				hits.push_back(hit);
 			}
 			return hits;
