@@ -400,6 +400,7 @@
     <ClCompile Include="math\rectangle2d.cpp" />
     <ClCompile Include="primitives\square-primitive.cpp" />
     <ClCompile Include="primitives\transformer-primitive.cpp" />
+    <ClCompile Include="primitives\triangle-primitive.cpp" />
     <ClCompile Include="primitives\union-primitive.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v0.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v1.cpp" />
@@ -519,6 +520,7 @@
     <ClInclude Include="pipeline\wif-consumer.h" />
     <ClInclude Include="pipeline\wif-processor.h" />
     <ClInclude Include="primitives\square-primitive.h" />
+    <ClInclude Include="primitives\triangle-primitive.h" />
     <ClInclude Include="raytracers\ray-tracer-v1.h" />
     <ClInclude Include="raytracers\ray-tracer-v2.h" />
     <ClInclude Include="raytracers\ray-tracer-v3.h" />
