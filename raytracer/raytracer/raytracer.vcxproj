@@ -349,6 +349,7 @@
     <ClCompile Include="demos\basic-sample.cpp" />
     <ClCompile Include="demos\basic-sample2.cpp" />
     <ClCompile Include="demos\demo.cpp" />
+    <ClCompile Include="lights\spot-light.cpp" />
     <ClCompile Include="math\angle.cpp" />
     <ClCompile Include="animation\animation.cpp" />
     <ClCompile Include="animation\duration.cpp" />
@@ -483,6 +484,7 @@
     <ClInclude Include="demos\basic-sample2.h" />
     <ClInclude Include="demos\demo.h" />
     <ClInclude Include="demos\demos.h" />
+    <ClInclude Include="lights\spot-light.h" />
     <ClInclude Include="materials\composition-material.h" />
     <ClInclude Include="imaging\bitmap-function.h" />
     <ClInclude Include="cameras\camera.h" />
