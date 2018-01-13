@@ -18,5 +18,5 @@ namespace
 
 std::shared_ptr<Consumer<std::shared_ptr<imaging::Bitmap>>> raytracer::pipeline::ppm()
 {
-	return std::shared_ptr<Consumer<std::shared_ptr<imaging::Bitmap>>>();
+	return std::make_shared<Ppm>();
 }

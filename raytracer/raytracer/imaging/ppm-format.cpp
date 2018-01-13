@@ -1,27 +1,46 @@
 #include "imaging/ppm-format.h"
+#include <bitset>
+
+using namespace imaging;
+
+namespace
+{
+	struct RGBColor
+	{
+		double r, g, b;
+
+		RGBColor(const Color& c)
+		{
+			Color clamped = c.clamped();
+
+			r = floor(clamped.r * 255);
+			g = floor(clamped.g * 255);
+			b = floor(clamped.b * 255);
+		}
+	};
+}
 
 namespace imaging
 {
 	void write_text_ppm(const Bitmap& bitmap, std::ostream& out)
 	{
-		uint32_t width = bitmap.width();
-		uint32_t height = bitmap.height();
+		int width = bitmap.width();
+		int height = bitmap.height();
 
-		out << "P3" << "\n"
-			<< width << " "
-			<< height << "\n"
-			<< "255" << "\n"
+		out << "P3\n"
+			<< width << " " << height << "\n"
+			<< "255\n"
 			;
 
-		for (unsigned i = 0; i != width; i++)
+		for (unsigned j = 0; j != height; j++)
 		{
-			for (unsigned j = 0; i != height; j++)
+			for (unsigned i = 0; i != width; i++)
 			{
 				Color color(bitmap[Position2D(i, j)]);
-				out << color << " ";
+				RGBColor rgb(color);
+				out << rgb.r << " " << rgb.g << " " << rgb.b << "	";
 			}
 			out << "\n";
 		}
 	}
 }
-
