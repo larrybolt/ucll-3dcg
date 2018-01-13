@@ -11,7 +11,7 @@ Overview of who is working on or has finished which features.
 
 #### Doing:
 
-- Lissajous
+- Parallel Task Scheduler
 
 #### Done:
 
