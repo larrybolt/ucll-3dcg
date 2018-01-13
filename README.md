@@ -11,7 +11,7 @@ Overview of who is working on or has finished which features.
 
 #### Doing:
 
-- Ppm
+- Lissajous
 
 #### Done:
 
@@ -26,6 +26,7 @@ Overview of who is working on or has finished which features.
 - Triangle (level 2)
 - Ray Tracer V5 (level 3)
 - Spot (level 3)
+- Ppm (level 3)
 - Ray Tracer V6 (level 4)
 
 ### Michiel
