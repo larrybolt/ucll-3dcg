@@ -1,0 +1,82 @@
+ // This function is called for multiple values of "now"
+def scene_at(now)
+{
+
+  var x = Animations.animate(-5, 5, seconds(5))
+  
+  var camera = Cameras.perspective( [ "eye": pos(0,0,10),
+                                      "look_at": pos(0,0,0),
+                                      "up": vec(0,1,0) ] )
+
+  var back_sphere_material = Materials.uniform( [ "ambient": Colors.blue() * 0.1,
+											      "diffuse": Colors.blue() * 0.8,
+											      "specular": Colors.white() * 0.8,
+											      "specular_exponent": 10 ] )
+	
+  var front_sphere_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+												   "diffuse": Colors.white() * 0.8,
+                                             	   "transparency": 1,
+                                             	   "refractive_index": 2.5 ] )
+                                             		 
+  var floor_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+    										 "diffuse": Colors.white() * 0.5,
+    										 "reflectivity": 1 ] )
+  
+  var back_wall_material = Materials.uniform( [ "ambient": Colors.red() * 0.1,
+  												"diffuse": Colors.red() * 0.8,
+  												"specular": Colors.white() *0.8,
+  												"specular_exponent": 5 ] )
+  												
+  var square_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+  											 "diffuse": Colors.white() * 0.8,
+  											 "reflectivity": 1 ] )
+  											 
+  var triangle_material = Materials.uniform( ["ambient": Colors.blue() * 0.1,
+  											  "diffuse": Colors.blue() * 0.3 ] )
+  											  
+  var p1 = pos(-4,-2.9,-4.9)
+  var p2 = pos(-2,-2.9,-4.9)
+  var p3 = pos(-3,0,-4.9)
+  
+  var t1 = pos(2,-2.9,-4.9)
+  var t2 = pos(4,-2.9,-4.9)
+  var t3 = pos(3,0,-4.9)
+													 
+  var primitives = []
+	
+  primitives.push_back( translate(vec(0,0,-5), decorate(back_wall_material, xy_plane())) )
+  
+  primitives.push_back( translate(vec(0,-3,0), decorate(floor_material, xz_plane())) )
+	
+  primitives.push_back( decorate( back_sphere_material, translate(vec(x[now],0,-3),sphere())) )
+	
+  primitives.push_back( decorate( front_sphere_material, translate(vec(0,0,2), sphere())) )
+  
+  primitives.push_back( translate(vec(-1,0,7), decorate(square_material, yz_square())) )
+  
+  primitives.push_back( translate(vec(1,0,7), decorate(square_material, yz_square())) )
+  
+  primitives.push_back( decorate( triangle_material, triangle(p1,p2,p3) ) )
+  
+  primitives.push_back( decorate( triangle_material, triangle(t1,t2,t3) ) )
+	
+  var root = union(primitives)
+
+
+  var lights = [ Lights.omnidirectional(pos(0,10,2), Colors.white() ),
+  				 Lights.spot(pos(-x[now],10,2), vec(0,-1,0), degrees(20), Colors.blue() ) ]
+  
+  create_scene(camera, root, lights)
+}
+
+var renderer = Renderers.standard( [ "width": 1080,
+                                     "height": 1080,
+                                     "sampler": Samplers.single(),
+                                     "ray_tracer": Raytracers.v6() ] )
+
+pipeline( scene_animation(scene_at, seconds(5)),
+          [ Pipeline.animation(30),
+            Pipeline.renderer(renderer),
+            Pipeline.ppm() ] )
+            
+//cmd: /x64/Release - Full Optimization/raytracer.exe --quiet -s /scripts/bram/basic_scripting_ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 30 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../Defense/basic_scripting.mp4
