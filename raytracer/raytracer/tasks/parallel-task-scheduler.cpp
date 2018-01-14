@@ -12,18 +12,39 @@ namespace
 	/// </summary>
 	class ParallelTaskScheduler : public tasks::schedulers::_private_::TaskSchedulerImplementation
 	{
-	protected:
 
-		static void *execute(std::vector<std::shared_ptr<Task>> tasks)
+	public:
+		void perform(std::vector<std::shared_ptr<Task>> tasks) const
+		{
+			std::vector<std::thread> th;
+
+			// Check how many threads can run concurrently ( - main thread)
+			unsigned int num_threads = std::thread::hardware_concurrency() - 1;
+
+			// Create threads and call execute with a pointer to tasks
+			for (unsigned i = 0; i < num_threads; i++)
+			{
+				th.push_back(std::thread(&ParallelTaskScheduler::execute, &tasks));
+			}
+
+			// Join the threads
+			for (auto &t : th)
+			{
+				t.join();
+			}
+		}
+
+	protected:
+		static void *execute(std::vector<std::shared_ptr<Task>>* tasks)
 		{
 			// Check if there are tasks left to perform
-			if (tasks.size() > 0)
+			if (tasks->size() > 0)
 			{
 				// Create a task from the back of the tasks list.
-				auto task = tasks.back();
+				auto task = tasks->back();
 
 				// Remove task from list.
-				tasks.pop_back();
+				tasks->pop_back();
 
 				// Perform the task.
 				task->perform();
@@ -33,26 +54,6 @@ namespace
 			}
 			return 0;
 		}
-
-	public:
-		void perform(std::vector<std::shared_ptr<Task>> tasks) const
-		{
-			std::vector<std::thread> th;
-
-			unsigned int num_threads = std::thread::hardware_concurrency() - 1;
-
-			for (unsigned i = 0; i < num_threads; i++)
-			{
-				th.push_back(std::thread(&ParallelTaskScheduler::execute, tasks));
-			}
-
-			for (auto &t : th)
-			{
-				t.join();
-			}
-		}
-
-		
 	};
 }
 
