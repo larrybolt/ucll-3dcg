@@ -42,3 +42,5 @@ Overview of who is working on or has finished which features.
 #### Done:
 
 - Ray Tracer V1 (level 1)
+
+To run the script, enter 'ruby extensions.rb' on the command line. It will then tell you if there are any problems, e.g. if you haven't made enough extensions, if the same extension has been made multiple times, etc.
