@@ -11,7 +11,6 @@ Overview of who is working on or has finished which features.
 
 #### Doing:
 
-- Parallel Task Scheduler
 
 #### Done:
 
@@ -28,6 +27,7 @@ Overview of who is working on or has finished which features.
 - Spot (level 3)
 - Ppm (level 3)
 - Ray Tracer V6 (level 4)
+- Parallel Task Scheduler (level) 
 
 ### Michiel
 
