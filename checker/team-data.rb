@@ -1,27 +1,26 @@
-team_member 'Nick' do
-  extension BasicSample
-  extension BasicScripting
-  
-  extension RayTracerV1
+team_member 'Bram' do
   extension RayTracerV2
   extension RayTracerV3
-
-  extension PrimitiveRotationX
-end
-
-team_member 'Kurt' do
-  extension BasicSample
-  extension BasicScripting
-  
   extension RayTracerV4
   extension RayTracerV5
+  extension RayTracerV6
+  extension SpotLight
+  extension PlaneXZ
+  extension PlaneXZOptimized
+  extension SquareYZ
+  extension SquareYZOptimized
+  extension Triangle
+  extension TriangleOptimized
+  extension ParallelScheduler
+  extension Ppm
 end
 
-team_member 'Dale' do
-  extension BasicSample
-  extension BasicScripting
+team_member 'Michiel' do
+  
+end
 
-  extension RayTracerV6
+team_member 'Larry' do
+  extension RayTracerV1
 end
 
 
