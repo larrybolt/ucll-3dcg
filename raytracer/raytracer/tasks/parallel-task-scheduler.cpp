@@ -1,6 +1,6 @@
 #include "tasks/parallel-task-scheduler.h"
 #include <thread>
-#include <atomic>
+#include <mutex>
 
 using namespace tasks;
 
@@ -16,41 +16,47 @@ namespace
 	public:
 		void perform(std::vector<std::shared_ptr<Task>> tasks) const
 		{
+			static std::mutex mtx;
 			std::vector<std::thread> th;
 
-			// Check how many threads can run concurrently ( - main thread)
+			// Check how many threads can run concurrently ( - main thread).
 			unsigned int num_threads = std::thread::hardware_concurrency() - 1;
 
-			// Create threads and call execute with a pointer to tasks
+			// Create threads and call execute with a pointer to tasks.
 			for (unsigned i = 0; i < num_threads; i++)
 			{
-				th.push_back(std::thread(&ParallelTaskScheduler::execute, &tasks));
+				th.push_back(std::thread(&ParallelTaskScheduler::execute, &tasks, &mtx));
 			}
 
-			// Join the threads
+			// Join the threads.
 			for (auto &t : th)
 			{
 				t.join();
 			}
 		}
 
-	protected:
-		static void *execute(std::vector<std::shared_ptr<Task>>* tasks)
+		static void *execute(std::vector<std::shared_ptr<Task>>* tasks, std::mutex* mtx)
 		{
 			// Check if there are tasks left to perform
 			if (tasks->size() > 0)
 			{
+				// Acquire lock to get access to list of tasks.
+				mtx->lock();
+
 				// Create a task from the back of the tasks list.
 				auto task = tasks->back();
 
 				// Remove task from list.
 				tasks->pop_back();
 
+				// Release lock.
+				mtx->unlock();
+
 				// Perform the task.
 				task->perform();
 
 				// Call recursively until all tasks have been performed.
-				execute(tasks);
+				execute(tasks, mtx);
 			}
 			return 0;
 		}
