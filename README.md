@@ -28,7 +28,7 @@ Overview of who is working on or has finished which features.
 - Spot (level 3)
 - Ppm (level 3)
 - Ray Tracer V6 (level 4)
-- Parallel Task Scheduler (level) 
+- Parallel Task Scheduler (level 4) 
 
 ### Michiel
 
