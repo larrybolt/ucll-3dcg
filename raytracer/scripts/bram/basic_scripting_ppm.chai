@@ -75,8 +75,8 @@ var renderer = Renderers.standard( [ "width": 1080,
                                      "ray_tracer": Raytracers.v6() ] )
 
 pipeline( scene_animation(scene_at, seconds(5)),
-          [ Pipeline.animation(30),
+          [ Pipeline.animation(60),
             Pipeline.renderer(renderer),
             Pipeline.ppm() ] )
             
-//cmd: /x64/Release - Full Optimization/raytracer.exe --quiet -s /scripts/bram/basic_scripting_ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 30 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../Defense/basic_scripting.mp4
+//cmd: raytracer.exe --quiet -s ../../scripts/bram/basic_scripting_ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 30 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../../../Defense/basic_scripting.mp4

@@ -31,4 +31,6 @@ var renderer = Renderers.standard( [ "width": 400,
 pipeline( scene_animation(scene_at, seconds(5)),
           [ Pipeline.animation(30),
             Pipeline.renderer(renderer),
-            Pipeline.ppm() ] )
+            Pipeline.wif(),
+            Pipeline.base64(),
+            Pipeline.stdout() ] )

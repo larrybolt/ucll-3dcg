@@ -20,7 +20,7 @@ namespace
 			std::vector<std::thread> th;
 
 			// Check how many threads can run concurrently ( - main thread).
-			unsigned int num_threads = std::thread::hardware_concurrency() - 1;
+			unsigned int num_threads = std::thread::hardware_concurrency();
 
 			// Create threads and call execute with a pointer to tasks.
 			for (unsigned i = 0; i < num_threads; i++)
