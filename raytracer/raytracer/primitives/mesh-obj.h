@@ -6,6 +6,6 @@ namespace raytracer
 {
 	namespace primitives
 	{
-		Primitive objMesh(const std::string& path);
+		Primitive obj_mesh(const std::string& path);
 	}
 }

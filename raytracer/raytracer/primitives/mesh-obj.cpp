@@ -17,46 +17,43 @@ namespace
 	{
 	public:
 		MeshObj(const string& path)
-			: m_path(path) {}
+			: m_mesh(create_mesh(path)) {}
 
 		bool find_first_positive_hit(const Ray& ray, Hit* hit) const override
 		{
-			return create_mesh(m_path)->find_first_positive_hit(ray, hit);
+			return m_mesh->find_first_positive_hit(ray, hit);
 		}
 		
 		std::vector<std::shared_ptr<Hit>> find_all_hits(const Ray& ray) const override
 		{
-			return create_mesh(m_path)->find_all_hits(ray);
+			return m_mesh->find_all_hits(ray);
 		}
 
 		Box bounding_box() const override
 		{
-			return create_mesh(m_path)->bounding_box();
+			return m_mesh->bounding_box();
 		}
 
 	protected:
-
 		// Creates a mesh primitive from a .obj file
 		Primitive create_mesh(const string& path) const
 		{
-			// Initialize primitive
-			Primitive mesh;
+			LOG(INFO) << "Reading mesh";
+			std::vector<Primitive> triangles;
 
-			ifstream obj(path);
+			std::ifstream obj(path);
 
 			// Check if file exists
 			if (!obj.is_open())
 			{
 				// File does not exitst
 				LOG(INFO) << "Could not open file at location " << path;
-				return mesh;
+				Primitive no_mesh;
+				return no_mesh;
 			}
 
 			// Initialize list of vertices
 			std::vector<Point3D> vertices;
-
-			// Initialize list of polygons
-			std::vector<Primitive> polygons;
 
 			std::string line;
 
@@ -77,6 +74,8 @@ namespace
 					// Extract the x, y and z coordinates from the line
 					iss >> x >> y >> z;
 
+					LOG(INFO) << "New vertex (" << x << ", " << y << ", " << z << ")";
+
 					// Create a Point3D from the coordinates
 					Point3D p(x, y, z);
 
@@ -87,34 +86,31 @@ namespace
 				// Checks if the data on the line represents a set of triangles
 				else if (method == "f")
 				{
-					std::vector<Primitive> polygon;
 					int a, b, c;
 					char s;
 
 					// Read the set of triangles from the polygon line with the index of the vertices seperated by a '/'
 					while ((iss >> a >> s >> b >> s >> c) && s == '/')
 					{
+						LOG(INFO) << "New triangle (v" << a << ", v" << b << ", v" << c << ")";
+
 						// Create a triangle from the corresponding vertices (index -1 because they start at 1) and add it to the polygon list
-						polygon.push_back(triangle(vertices[a-1], vertices[b-1], vertices[b-1]));
+						triangles.push_back(triangle(vertices[a-1], vertices[b-1], vertices[b-1]));
 					}
-
-					// Union all triangles into a polygon
-					Primitive un = make_union(polygon);
-
-					// Add the polygon to the list of polygons
-					polygons.push_back(un);
 				}
 			}
-			// return a union primitive of all polygons
-			return make_union(polygons);
+			LOG(INFO) << "Finished reading mesh, " << triangles.size() << " triangles found";
+
+			// Return a union primitive of the list of triangles
+			return make_union(triangles);
 		}		
 
 	private:
-		string m_path;
+		Primitive m_mesh;
 	};
 }
 
-Primitive raytracer::primitives::objMesh(const std::string& path)
+Primitive raytracer::primitives::obj_mesh(const std::string& path)
 {
 	return Primitive(std::make_shared<MeshObj>(path));
 }
