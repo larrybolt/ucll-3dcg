@@ -4,13 +4,21 @@ def scene_at(now)
   var camera = Cameras.perspective( [ "eye": pos(0,0,10),
                                       "look_at": pos(0,0,0),
                                       "up": vec(0,1,0) ] )
+                                      
+  var material = Materials.uniform( [ "ambient": Colors.white() * 0.3,
+  									  "diffuse": Colors.white() * 0.8 ] )
   
   // Enter the path to the .obj mesh file
   var path = "C:/Users/Bram/Documents/1_School/Fase 3/Semester 1/3D Computer Graphics/Defense/tree.obj"
-	
-  var root = obj_mesh(path)
   
-  var lights = []
+  var primitives = []
+  
+  primitives.push_back( translate(vec(0,-3,0), decorate(material, xz_plane())) )
+  primitives.push_back( decorate(material, mesh(path)) )
+	
+  var root = union(primitives)
+  
+  var lights = [ Lights.omnidirectional( pos(0,0,10), Colors.white() ) ]
   
   create_scene(camera, root, lights)
   
@@ -19,7 +27,7 @@ def scene_at(now)
 var renderer = Renderers.standard( [ "width": 400,
                                      "height": 400,
                                      "sampler": Samplers.single(),
-                                     "ray_tracer": Raytracers.v0() ] )
+                                     "ray_tracer": Raytracers.v4() ] )
 
 pipeline( scene_animation(scene_at, seconds(1)),
           [ Pipeline.animation(1),
