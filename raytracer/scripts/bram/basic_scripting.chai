@@ -34,13 +34,13 @@ def scene_at(now)
   var triangle_material = Materials.uniform( ["ambient": Colors.blue() * 0.1,
   											  "diffuse": Colors.blue() * 0.3 ] )
   											  
-  var p1 = pos(-4,-2.9,-4.9)
-  var p2 = pos(-2,-2.9,-4.9)
+  var p1 = pos(-4,-2.9,-3.9)
+  var p2 = pos(-2,-2.9,-3.9)
   var p3 = pos(-3,0,-4.9)
   
   var t1 = pos(2,-2.9,-4.9)
   var t2 = pos(4,-2.9,-4.9)
-  var t3 = pos(3,0,-4.9)
+  var t3 = pos(3,0,-3.9)
 													 
   var primitives = []
 	
