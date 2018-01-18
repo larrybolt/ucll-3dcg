@@ -1,34 +1,29 @@
- // This function is called for multiple values of "now"
 def scene_at(now)
 {
   
   var camera = Cameras.perspective( [ "eye": pos(0,0,10),
                                       "look_at": pos(0,0,0),
                                       "up": vec(0,1,0) ] )
-
-  var back_sphere_material = Materials.uniform( [ "ambient": Colors.blue() * 0.1,
-											      "diffuse": Colors.blue() * 0.8,
-											      "specular": Colors.white() * 0.8,
-											      "specular_exponent": 10 ] )
-													 
-  var primitives = []
+  
+  // Enter the path to the .obj mesh file
+  var path = "C:/Users/Bram/Documents/1_School/Fase 3/Semester 1/3D Computer Graphics/Defense/tree.obj"
 	
-  primitives.push_back( decorate( back_sphere_material,sphere()) )
-	
-  var root = union(primitives)
-
-
-  var lights = [ Lights.omnidirectional(pos(0,10,2), Colors.white() ) ]
+  var root = obj_mesh(path)
+  
+  var lights = []
   
   create_scene(camera, root, lights)
+  
 }
 
 var renderer = Renderers.standard( [ "width": 400,
                                      "height": 400,
                                      "sampler": Samplers.single(),
-                                     "ray_tracer": Raytracers.v6() ] )
+                                     "ray_tracer": Raytracers.v0() ] )
 
-pipeline( scene_animation(scene_at, seconds(5)),
-          [ Pipeline.animation(30),
+pipeline( scene_animation(scene_at, seconds(1)),
+          [ Pipeline.animation(1),
             Pipeline.renderer(renderer),
-            Pipeline.ppm() ] )
+            Pipeline.wif(),
+            Pipeline.base64(),
+            Pipeline.stdout() ] )

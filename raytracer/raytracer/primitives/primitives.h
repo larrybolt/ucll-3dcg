@@ -7,3 +7,4 @@
 #include "primitives/transformer-primitive.h"
 #include "primitives/square-primitive.h"
 #include "primitives/triangle-primitive.h"
+#include "primitives/mesh-obj-reader.h"

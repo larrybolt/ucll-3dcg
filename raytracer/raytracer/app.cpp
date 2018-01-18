@@ -10,6 +10,7 @@
 #include "scripting/scripting.h"
 #include "performance/performance.h"
 #include <assert.h>
+#include <thread>
 
 using namespace raytracer;
 
@@ -19,6 +20,7 @@ namespace
     void render_script(const std::string& filename)
     {
         TIMED_SCOPE(timer, "Rendering script");
+		LOG(INFO) << "Available threads to render script: " << std::thread::hardware_concurrency();
 
 #       ifdef EXCLUDE_SCRIPTING
         LOG(ERROR) << "Cannot run script - scripting was excluded";
