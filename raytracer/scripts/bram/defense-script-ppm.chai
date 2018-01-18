@@ -66,4 +66,4 @@ pipeline( scene_animation(scene_at, seconds(5)),
             Pipeline.renderer(renderer),
             Pipeline.ppm() ] )
             
-//cmd: raytracer.exe --quiet -s ../../scripts/bram/defense-script-ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 30 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../../../Defense/defense.mp4
+//cmd: raytracer.exe --quiet -s ../../scripts/bram/defense-script-ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 60 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../../../Defense/defense.mp4
