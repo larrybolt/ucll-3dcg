@@ -41,8 +41,6 @@ std::vector<Primitive> read_mesh(const std::string& path)
 	// Read each line of the .obj file
 	while (std::getline(obj, line))
 	{
-		LOG(INFO) << "New line";
-
 		std::istringstream iss(line);
 		std::string method;
 
@@ -81,13 +79,9 @@ std::vector<Primitive> read_mesh(const std::string& path)
 				triangles.push_back(triangle(vertices[a - 1], vertices[b - 1], vertices[b - 1]));
 			}
 		}
-		else
-		{
-			LOG(INFO) << "Ignored this line";
-		}
 	}
 
-	LOG(INFO) << "Finished reading mesh, " << triangles.size() << " triangles found";
+	LOG(INFO) << "Finished reading mesh, " << triangles.size() << " triangles found out of " << vertices.size() << " vertices";
 
 	// Return the list of triangles
 	return triangles;
