@@ -49,6 +49,7 @@ ModulePtr raytracer::scripting::_private_::create_primitives_module()
     BIND_DIRECTLY(decorate);
     BIND_DIRECTLY(translate);
 	BIND_DIRECTLY(scale);
+	BIND_DIRECTLY(rotate_around_x);
 #   undef BIND_HELPER_FUNCTION_AS
 #   undef BIND_DIRECTLY
 #   undef BIND_HELPER_FUNCTION
