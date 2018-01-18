@@ -38,7 +38,7 @@ Overview of who is working on or has finished which features.
 - Scale (level 1)
 - Rotate_around_X (level 1)
 - Angle Animation (level 2)
-
+- Vertical lines (level 2)
 ### Larry
 
 #### Doing:
