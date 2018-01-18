@@ -11,7 +11,6 @@ Overview of who is working on or has finished which features.
 
 #### Doing:
 
-- Reading mesh
 
 #### Done:
 
@@ -29,6 +28,7 @@ Overview of who is working on or has finished which features.
 - Ppm (level 3)
 - Ray Tracer V6 (level 4)
 - Parallel Task Scheduler (level 4) 
+- Reading mesh (level 5)
 
 ### Michiel
 
