@@ -70,13 +70,41 @@ std::vector<Primitive> read_mesh(const std::string& path)
 			int a, b, c;
 			char s;
 
-			// Read the set of triangles from the polygon line with the index of the vertices seperated by a '/'
+			// Initialize list of vertices, that define a polygon
+			std::vector<Point3D> polygon;
+
+			// Add the found vertices a to the list with polygon vertices, b and c are irrelevant for our reader
 			while ((iss >> a >> s >> b >> s >> c) && s == '/')
 			{
-				LOG(INFO) << "New triangle (v" << a << ", v" << b << ", v" << c << ")";
+				// Vertices in .obj files start at one, so -1 to find the right vertex from our own list
+				Point3D v(vertices[a - 1]);
+				polygon.push_back(v);
+			}
 
-				// Create a triangle from the corresponding vertices (index -1 because they start at 1 in .obj files) and add it to the triangles list
-				triangles.push_back(triangle(vertices[a - 1], vertices[b - 1], vertices[b - 1]));
+			// Check how many vertices are in the polygon
+			int count = polygon.size();
+			LOG(INFO) << "New polygon with " << count << " vertices";
+
+			// Divide the polygon into triangles, assuming they are counter-clockwise and only consists of 3 to 6 vertices
+			if (count >= 3)
+			{
+				triangles.push_back(triangle(polygon[0], polygon[1], polygon[2]));
+				LOG(INFO) << "New triangle";
+			}
+			if (count >= 4)
+			{
+				triangles.push_back(triangle(polygon[2], polygon[3], polygon[0]));
+				LOG(INFO) << "New triangle";
+			}
+			if (count >= 5)
+			{
+				triangles.push_back(triangle(polygon[3], polygon[4], polygon[0]));
+				LOG(INFO) << "New triangle";
+			}
+			if (count >= 6)
+			{
+				triangles.push_back(triangle(polygon[4], polygon[5], polygon[0]));
+				LOG(INFO) << "New triangle";
 			}
 		}
 	}

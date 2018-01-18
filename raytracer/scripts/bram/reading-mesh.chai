@@ -1,24 +1,27 @@
 def scene_at(now)
 {
   
-  var camera = Cameras.perspective( [ "eye": pos(0,0,100),
+  var camera = Cameras.perspective( [ "eye": pos(0,50,300),
                                       "look_at": pos(0,0,0),
                                       "up": vec(0,1,0) ] )
                                       
-  var material = Materials.uniform( [ "ambient": Colors.white() * 0.3,
-  									  "diffuse": Colors.white() * 0.8 ] )
+  var tree_material = Materials.uniform( [ "ambient": Colors.green() * 0.3,
+  									  	   "diffuse": Colors.green() * 0.8 ] )
+  									  
+  var floor_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+  											"diffuse": Colors.white() * 0.8 ] )
   
   // Enter the path to the .obj mesh file
   var path = "C:/Users/Bram/Desktop/tree.obj"
   
   var primitives = []
   
-  primitives.push_back( translate(vec(0,-100,0), decorate(material, xz_plane())) )
-  primitives.push_back( mesh_obj(path) )
+  primitives.push_back( decorate( tree_material, mesh_obj(path) ) )
+  primitives.push_back( translate( vec(0,-0.1,0), decorate( floor_material, xz_plane() ) ) )
 	
   var root = union(primitives)
   
-  var lights = [ Lights.omnidirectional( pos(0,0,100), Colors.white() ) ]
+  var lights = [ Lights.omnidirectional( pos(0,100,150), Colors.white() ) ]
   
   create_scene(camera, root, lights)
   
@@ -27,7 +30,7 @@ def scene_at(now)
 var renderer = Renderers.standard( [ "width": 400,
                                      "height": 400,
                                      "sampler": Samplers.single(),
-                                     "ray_tracer": Raytracers.v4() ] )
+                                     "ray_tracer": Raytracers.v6() ] )
 
 pipeline( scene_animation(scene_at, seconds(1)),
           [ Pipeline.animation(1),
