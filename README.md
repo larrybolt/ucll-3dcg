@@ -28,14 +28,17 @@ Overview of who is working on or has finished which features.
 - Spot (level 3)
 - Ppm (level 3)
 - Ray Tracer V6 (level 4)
-- Parallel Task Scheduler (level) 
+- Parallel Task Scheduler (level 4) 
 
 ### Michiel
 
 #### Doing:
 
 #### Done:
-
+- Scale (level 1)
+- Rotate_around_X (level 1)
+- Angle Animation (level 2)
+- Vertical lines (level 2)
 ### Larry
 
 #### Doing:

@@ -9,6 +9,8 @@ namespace raytracer
     namespace primitives
     {
         Primitive transform(const math::Transformation3D&, Primitive);
-        Primitive translate(const math::Vector3D&, Primitive);        
+        Primitive translate(const math::Vector3D&, Primitive);  
+		Primitive scale(double, double, double, Primitive);
+		Primitive rotate_around_x(math::Angle, Primitive );
     }
 }
