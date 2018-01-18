@@ -291,7 +291,7 @@
     <ClCompile Include="tasks\parallel-task-scheduler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="primitives\mesh-obj.cpp">
+    <ClCompile Include="primitives\mesh-obj-reader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -833,7 +833,7 @@
     <ClInclude Include="tasks\parallel-task-scheduler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="primitives\mesh-obj.h">
+    <ClInclude Include="primitives\mesh-obj-reader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
 def scene_at(now)
 {
   
-  var camera = Cameras.perspective( [ "eye": pos(0,0,10),
+  var camera = Cameras.perspective( [ "eye": pos(0,0,100),
                                       "look_at": pos(0,0,0),
                                       "up": vec(0,1,0) ] )
                                       
@@ -9,16 +9,16 @@ def scene_at(now)
   									  "diffuse": Colors.white() * 0.8 ] )
   
   // Enter the path to the .obj mesh file
-  var path = "C:\\Users\\Bram\\Documents\\1_School\\Fase 3\\Semester 1\\3D Computer Graphics\\Defense\\tree.obj"
+  var path = "C:/Users/Bram/Desktop/tree.obj"
   
   var primitives = []
   
-  primitives.push_back( translate(vec(0,-3,0), decorate(material, xz_plane())) )
-  primitives.push_back( mesh(path) )
+  primitives.push_back( translate(vec(0,-100,0), decorate(material, xz_plane())) )
+  primitives.push_back( mesh_obj(path) )
 	
   var root = union(primitives)
   
-  var lights = [ Lights.omnidirectional( pos(0,0,10), Colors.white() ) ]
+  var lights = [ Lights.omnidirectional( pos(0,0,100), Colors.white() ) ]
   
   create_scene(camera, root, lights)
   

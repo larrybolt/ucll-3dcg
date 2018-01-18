@@ -7,28 +7,37 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "raytracer", "raytracer\rayt
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release (Full Optimization)|ARM = Release (Full Optimization)|ARM
 		Release (Full Optimization)|x64 = Release (Full Optimization)|x64
 		Release (Full Optimization)|x86 = Release (Full Optimization)|x86
+		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
+		Testing|ARM = Testing|ARM
 		Testing|x64 = Testing|x64
 		Testing|x86 = Testing|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Debug|ARM.ActiveCfg = Debug|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Debug|x64.ActiveCfg = Debug|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Debug|x64.Build.0 = Debug|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Debug|x86.ActiveCfg = Debug|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Debug|x86.Build.0 = Debug|Win32
+		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release (Full Optimization)|ARM.ActiveCfg = Testing|Win32
+		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release (Full Optimization)|ARM.Build.0 = Testing|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release (Full Optimization)|x64.ActiveCfg = Release - Full Optimization|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release (Full Optimization)|x64.Build.0 = Release - Full Optimization|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release (Full Optimization)|x86.ActiveCfg = Release|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release (Full Optimization)|x86.Build.0 = Release|Win32
+		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release|ARM.ActiveCfg = Release|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release|x64.ActiveCfg = Release|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release|x64.Build.0 = Release|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release|x86.ActiveCfg = Release - Full Optimization|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Release|x86.Build.0 = Release - Full Optimization|Win32
+		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Testing|ARM.ActiveCfg = Testing|Win32
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Testing|x64.ActiveCfg = Testing|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Testing|x64.Build.0 = Testing|x64
 		{91038B33-14FE-4EC4-A761-D26EBB65751D}.Testing|x86.ActiveCfg = Testing|Win32
