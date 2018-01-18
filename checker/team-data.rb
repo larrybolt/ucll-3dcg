@@ -13,6 +13,7 @@ team_member 'Bram' do
   extension TriangleOptimized
   extension ParallelScheduler
   extension Ppm
+  extension MeshReading
 end
 
 team_member 'Michiel' do

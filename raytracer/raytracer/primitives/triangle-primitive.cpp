@@ -18,7 +18,7 @@ namespace
 			auto hits = find_all_hits(ray);
 			if (hits.size() > 0)
 			{
-				auto found = hits.front();
+				auto found = hits.back();
 				if (found->t > 0 && found->t < hit->t)
 				{
 					*hit = *found;
@@ -75,27 +75,13 @@ namespace
 
 		Box bounding_box() const override
 		{
-			return Box(interval(min(m_v0.x(),m_v1.x(),m_v2.x()), max(m_v0.x(),m_v1.x(),m_v2.x())), interval(min(m_v0.y(), m_v1.y(), m_v2.y()), max(m_v0.y(), m_v1.y(), m_v2.y())), interval(min(m_v0.z(), m_v1.z(), m_v2.z()), max(m_v0.z(), m_v1.z(), m_v2.z())));
-		}
-
-	private:
-		Point3D m_v0;
-		Point3D m_v1;
-		Point3D m_v2;
-
-		double min(double a, double b, double c) const
-		{
-			double min = a;
-			if (b < min) min = b;
-			if (c < min) min = c;
-			return min;
-		}
-		double max(double a, double b, double c) const
-		{
-			double max = a;
-			if (b > max) max = b;
-			if (c > max) max = c;
-			return max;
+			double min_x = std::min(std::min(m_v0.x(), m_v1.x()), m_v2.x());
+			double max_x = std::max(std::max(m_v0.x(), m_v1.x()), m_v2.x());
+			double min_y = std::min(std::min(m_v0.y(), m_v1.y()), m_v2.y());
+			double max_y = std::max(std::max(m_v0.y(), m_v1.y()), m_v2.y());
+			double min_z = std::min(std::min(m_v0.z(), m_v1.z()), m_v2.z());
+			double max_z = std::max(std::max(m_v0.z(), m_v1.z()), m_v2.z());
+			return Box(interval(min_x, max_x), interval(min_y, max_y), interval(min_z, max_z));
 		}
 
 	protected:
@@ -106,6 +92,11 @@ namespace
 			hit->local_position.xyz = hit->position;
 			hit->local_position.uv = Point2D(hit->position.x(), hit->position.y());
 		}
+
+	private:
+		Point3D m_v0;
+		Point3D m_v1;
+		Point3D m_v2;
 	};
 }
 

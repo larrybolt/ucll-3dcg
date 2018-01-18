@@ -1,4 +1,9 @@
- // This function is called for multiple values of "now"
+// This script demonstrates following extensions, made by Bram Van Asschodt:
+// Raytracer V2, V3, V4, V5 and V6,
+// Plane XZ + optimized,
+// Square YZ + optimized,
+// Spot Light,
+// Parallel Task Scheduler
 def scene_at(now)
 {
 
@@ -20,7 +25,7 @@ def scene_at(now)
                                              		 
   var floor_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
     										 "diffuse": Colors.white() * 0.5,
-    										 "reflectivity": 1 ] )
+    										 "reflectivity": 0.3 ] )
   
   var back_wall_material = Materials.uniform( [ "ambient": Colors.red() * 0.1,
   												"diffuse": Colors.red() * 0.8,
@@ -29,18 +34,7 @@ def scene_at(now)
   												
   var square_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
   											 "diffuse": Colors.white() * 0.8,
-  											 "reflectivity": 1 ] )
-  											 
-  var triangle_material = Materials.uniform( ["ambient": Colors.blue() * 0.1,
-  											  "diffuse": Colors.blue() * 0.3 ] )
-  											  
-  var p1 = pos(-4,-2.9,-4.9)
-  var p2 = pos(-2,-2.9,-4.9)
-  var p3 = pos(-3,0,-4.9)
-  
-  var t1 = pos(2,-2.9,-4.9)
-  var t2 = pos(4,-2.9,-4.9)
-  var t3 = pos(3,0,-4.9)
+  											 "reflectivity": 0.3 ] )
 													 
   var primitives = []
 	
@@ -55,10 +49,6 @@ def scene_at(now)
   primitives.push_back( translate(vec(-1,0,7), decorate(square_material, yz_square())) )
   
   primitives.push_back( translate(vec(1,0,7), decorate(square_material, yz_square())) )
-  
-  primitives.push_back( decorate( triangle_material, triangle(p1,p2,p3) ) )
-  
-  primitives.push_back( decorate( triangle_material, triangle(t1,t2,t3) ) )
 	
   var root = union(primitives)
 
@@ -69,14 +59,14 @@ def scene_at(now)
   create_scene(camera, root, lights)
 }
 
-var renderer = Renderers.standard( [ "width": 1080,
-                                     "height": 1080,
+var renderer = Renderers.standard( [ "width": 500,
+                                     "height": 500,
                                      "sampler": Samplers.single(),
                                      "ray_tracer": Raytracers.v6() ] )
 
 pipeline( scene_animation(scene_at, seconds(5)),
-          [ Pipeline.animation(60),
+          [ Pipeline.animation(10),
             Pipeline.renderer(renderer),
-            Pipeline.ppm() ] )
-            
-//cmd: raytracer.exe --quiet -s ../../scripts/bram/basic_scripting_ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 30 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../../../Defense/basic_scripting.mp4
+            Pipeline.wif(),
+            Pipeline.base64(),
+            Pipeline.stdout()] )

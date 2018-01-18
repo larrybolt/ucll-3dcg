@@ -19,7 +19,7 @@ namespace
 			static std::mutex mtx;
 			std::vector<std::thread> th;
 
-			// Check how many threads can run concurrently ( - main thread).
+			// Check how many threads can run concurrently
 			unsigned int num_threads = std::thread::hardware_concurrency();
 
 			// Create threads and call execute with a pointer to tasks.
