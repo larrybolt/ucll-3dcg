@@ -1,34 +1,38 @@
+// This script demonstrates following extensions, made by Bram Van Asschodt:
+// Triangle + optimized,
+// Reading Mesh (and also rendering, but I believe it doesn't count)
 def scene_at(now)
 {
   
-  var camera = Cameras.perspective( [ "eye": pos(0,50,300),
+  var camera = Cameras.perspective( [ "eye": pos(-5,5,20),
                                       "look_at": pos(0,0,0),
                                       "up": vec(0,1,0) ] )
                                       
-  var tree_material = Materials.uniform( [ "ambient": Colors.green() * 0.3,
-  									  	   "diffuse": Colors.green() * 0.8 ] )
+  var doggy_material = Materials.uniform( [ "ambient": Colors.yellow() * 0.2,
+  									  	    "diffuse": Colors.red() * 0.8 ] )
   									  
   var floor_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
-  											"diffuse": Colors.white() * 0.8 ] )
+  											"diffuse": Colors.white() * 0.8,
+  											"reflectivity": 0.3 ] )
   
   // Enter the path to the .obj mesh file
-  var path = "C:/Users/Bram/Desktop/tree.obj"
+  var path = "C:/Users/Bram/Documents/1_School/Fase 3/Semester 1/3D Computer Graphics/Defense/doggy.obj"
   
   var primitives = []
   
-  primitives.push_back( decorate( tree_material, mesh_obj(path) ) )
+  primitives.push_back( decorate( doggy_material, mesh_obj(path) ) )
   primitives.push_back( translate( vec(0,-0.1,0), decorate( floor_material, xz_plane() ) ) )
 	
   var root = union(primitives)
   
-  var lights = [ Lights.omnidirectional( pos(0,100,150), Colors.white() ) ]
+  var lights = [ Lights.omnidirectional( pos(0,10,20), Colors.white() ) ]
   
   create_scene(camera, root, lights)
   
 }
 
-var renderer = Renderers.standard( [ "width": 400,
-                                     "height": 400,
+var renderer = Renderers.standard( [ "width": 500,
+                                     "height": 500,
                                      "sampler": Samplers.single(),
                                      "ray_tracer": Raytracers.v6() ] )
 

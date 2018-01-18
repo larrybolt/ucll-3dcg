@@ -27,11 +27,14 @@ namespace imaging
 		int width = bitmap.width();
 		int height = bitmap.height();
 
+		// Ppm header
 		out << "P3\n"
 			<< width << " " << height << "\n"
 			<< "255\n"
 			;
 
+		// Ppm payload
+		// Each line is a row of pixels with its rgb values seperated by whitespace
 		for (unsigned j = 0; j != height; j++)
 		{
 			for (unsigned i = 0; i != width; i++)
