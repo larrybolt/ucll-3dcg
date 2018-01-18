@@ -11,3 +11,12 @@ Transformation3D math::transformations::translation(const Vector3D& v)
 
     return Transformation3D(tm, itm);
 }
+
+Transformation3D math::transformations::scale(double sx, double sy, double sz)
+{
+	Matrix4x4 tm = transformation_matrices::scaling(sx, sy, sz);
+	Matrix4x4 itm = transformation_matrices::scaling(-sx, -sy, -sz);
+
+	return Transformation3D(tm, itm);
+}
+

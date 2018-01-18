@@ -95,3 +95,8 @@ Primitive raytracer::primitives::translate(const Vector3D& v, Primitive transfor
 {
     return transform(math::transformations::translation(v), transformee);
 }
+
+Primitive raytracer::primitives::scale(double sx, double sy, double sz, Primitive transformee)
+{
+	return transform(math::transformations::scale(sx,sy,sz), transformee);
+}
