@@ -17,7 +17,15 @@ team_member 'Bram' do
 end
 
 team_member 'Michiel' do
-  
+ extension MaterialTransformer2D
+ extension MaterialTranslate2D
+ extension PlaneYZ
+ extension SquareXZ
+ extension BoundingBox
+ extension AngleAnimation
+ extension PrimitiveRotationX
+ extension PrimitiveScaling
+ extension MaterialVerticalLines
 end
 
 team_member 'Larry' do
