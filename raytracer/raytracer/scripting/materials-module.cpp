@@ -51,6 +51,11 @@ namespace
 		{
 			return raytracer::materials::vertical_lines(thickness, m1, m2);
 		}
+
+		Material translate(math::Vector2D& v, Material m) const
+		{
+			return raytracer::materials::translation(v,m);
+		}
     };
 }
 
@@ -77,6 +82,7 @@ ModulePtr raytracer::scripting::_private_::create_materials_module()
     BIND_AS(uniform_by_map, uniform);
     BIND(horizontal_lines);
 	BIND(vertical_lines);
+	BIND(translate);
 #   undef BIND
 #   undef BIND_AS
 

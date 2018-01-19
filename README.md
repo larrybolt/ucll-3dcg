@@ -37,8 +37,12 @@ Overview of who is working on or has finished which features.
 #### Done:
 - Scale (level 1)
 - Rotate_around_X (level 1)
+- YZ_plane (level 1)
 - Angle Animation (level 2)
 - Vertical lines (level 2)
+- MaterialTransFormer2D (level 3)
+- Translation2D (level 3)
+
 ### Larry
 
 #### Doing:

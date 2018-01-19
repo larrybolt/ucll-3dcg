@@ -43,6 +43,7 @@ ModulePtr raytracer::scripting::_private_::create_primitives_module()
     BIND_DIRECTLY(sphere);
     BIND_DIRECTLY(xy_plane);
 	BIND_DIRECTLY(xz_plane);
+	BIND_DIRECTLY(yz_plane);
 	BIND_DIRECTLY(yz_square);
 	BIND_DIRECTLY(triangle);
     BIND_HELPER_FUNCTION_AS(make_union, union);
