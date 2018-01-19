@@ -379,6 +379,7 @@
     <ClCompile Include="pipeline\text-writer-consumer.cpp" />
     <ClCompile Include="pipeline\wif-consumer.cpp" />
     <ClCompile Include="pipeline\wif-processor.cpp" />
+    <ClCompile Include="primitives\bounding-box.cpp" />
     <ClCompile Include="primitives\mesh-obj-reader.cpp" />
     <ClCompile Include="primitives\primitive.cpp" />
     <ClCompile Include="imaging\color-mapper.cpp" />
@@ -529,6 +530,7 @@
     <ClInclude Include="pipeline\text-writer-consumer.h" />
     <ClInclude Include="pipeline\wif-consumer.h" />
     <ClInclude Include="pipeline\wif-processor.h" />
+    <ClInclude Include="primitives\bounding-box.h" />
     <ClInclude Include="primitives\mesh-obj-reader.h" />
     <ClInclude Include="primitives\square-primitive.h" />
     <ClInclude Include="primitives\triangle-primitive.h" />

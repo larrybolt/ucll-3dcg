@@ -297,6 +297,9 @@
     <ClCompile Include="materials\material2d-transformer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="primitives\bounding-box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imaging\bitmap.h">
@@ -840,6 +843,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="materials\material2d-transformer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="primitives\bounding-box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

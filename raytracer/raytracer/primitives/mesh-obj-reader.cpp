@@ -114,9 +114,12 @@ std::vector<Primitive> read_mesh(const std::string& path)
 	// Return the list of triangles
 	return triangles;
 }
-
+#include "primitives/bounding-box.h"
 Primitive raytracer::primitives::mesh_obj(const std::string& path)
 {
+	
 	Primitive mesh = make_union(read_mesh(path));
-	return mesh;
+	Primitive x=primitives::bounding_box_accelerator(mesh);
+	
+	return x;
 }

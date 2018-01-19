@@ -8,3 +8,4 @@
 #include "primitives/square-primitive.h"
 #include "primitives/triangle-primitive.h"
 #include "primitives/mesh-obj-reader.h"
+#include "primitives/bounding-box.h"
