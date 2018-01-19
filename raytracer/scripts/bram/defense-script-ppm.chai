@@ -1,5 +1,5 @@
 // This script demonstrates following extensions, made by Bram Van Asschodt:
-// Same as defense-script.chai,
+// Same as defense-script.chai but in higher resolution and framerate,
 // PPM
 def scene_at(now)
 {
@@ -22,7 +22,7 @@ def scene_at(now)
                                              		 
   var floor_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
     										 "diffuse": Colors.white() * 0.5,
-    										 "reflectivity": 1 ] )
+    										 "reflectivity": 0.3 ] )
   
   var back_wall_material = Materials.uniform( [ "ambient": Colors.red() * 0.1,
   												"diffuse": Colors.red() * 0.8,
@@ -31,7 +31,7 @@ def scene_at(now)
   												
   var square_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
   											 "diffuse": Colors.white() * 0.8,
-  											 "reflectivity": 1 ] )
+  											 "reflectivity": 0.3 ] )
 													 
   var primitives = []
 	
@@ -66,4 +66,4 @@ pipeline( scene_animation(scene_at, seconds(5)),
             Pipeline.renderer(renderer),
             Pipeline.ppm() ] )
             
-//cmd: raytracer.exe --quiet -s ../../scripts/bram/defense-script-ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 30 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../../../Defense/defense.mp4
+//cmd: raytracer.exe --quiet -s ../../scripts/bram/defense-script-ppm.chai | magick ppm:- png:- | ffmpeg -y -framerate 60 -vcodec png -i - -c:v libx264 -r 30 -pix_fmt yuv420p ../../../../../Defense/defense.mp4
