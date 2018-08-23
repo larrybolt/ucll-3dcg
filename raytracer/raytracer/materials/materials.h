@@ -2,3 +2,5 @@
 #include "materials/uniform-material.h"
 #include "materials/pattern-materials.h"
 #include "materials/material2d-transformer.h"
+#include "materials/material3d.h"
+

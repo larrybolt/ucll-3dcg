@@ -56,6 +56,11 @@ namespace
 		{
 			return raytracer::materials::translation(v,m);
 		}
+
+		Material translate3D(math::Vector3D& v, Material m) const
+		{
+			return raytracer::materials::translation3D(v, m);
+		}
     };
 }
 
@@ -83,6 +88,8 @@ ModulePtr raytracer::scripting::_private_::create_materials_module()
     BIND(horizontal_lines);
 	BIND(vertical_lines);
 	BIND(translate);
+	BIND(translate3D);
+
 #   undef BIND
 #   undef BIND_AS
 

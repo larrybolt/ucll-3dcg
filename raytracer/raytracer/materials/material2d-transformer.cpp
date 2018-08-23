@@ -28,9 +28,12 @@ using namespace raytracer::materials;
 		Material transformee;
 	};
 
-	Material materials::translation(Vector2D& s, Material m)
+	Material materials::translation(math::Vector2D& s, Material m) //VS  translate????
 	{
 		return Material(std::make_shared<Material2DTransformer>(Transformation2D(math::transformations::translation(s)),m));
-	}
-
-	
+	};
+	/*
+	Material materials::translation(Vector3D& s, Material m)
+	{
+		return Material(std::make_shared<Material3D>(Transformation3D(math::transformations::translation(s)), m));
+	};*/

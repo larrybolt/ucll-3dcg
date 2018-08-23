@@ -19,7 +19,9 @@ end
 team_member 'Michiel' do
  extension MaterialTransformer2D
  extension MaterialTranslate2D
- extension PlaneYZ
+extension MaterialTransformer3D
+extension MaterialTranslate3D
+  extension PlaneYZ
  extension SquareXZ
  extension BoundingBox
  extension AngleAnimation
