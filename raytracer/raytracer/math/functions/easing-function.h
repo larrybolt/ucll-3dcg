@@ -11,5 +11,7 @@ namespace math
         /// Define EasingFunction as a synonym for math::Function&lt;double(double)&gt;.
         /// </summary>
         typedef math::Function<double(double)> EasingFunction;
+		//typedef math::Function<double(Animation<double>)> EasingFunction;
+
     }
 }

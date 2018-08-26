@@ -28,6 +28,7 @@ extension MaterialTranslate3D
  extension PrimitiveRotationX
  extension PrimitiveScaling
  extension MaterialVerticalLines
+extension EasingLibrary
 end
 
 team_member 'Larry' do

@@ -63,6 +63,14 @@ namespace
         Point3D cylindrical_z(double radius, Angle azimuth, double z) const     { return Point3D::cylindrical_z(radius, azimuth, z); }
     };
 
+	struct EasingLibrary
+	{
+		EasingFunction quadratic_in() const { return math::functions::easing::quadratic_in(); }
+
+		
+	};
+
+
     struct VectorFactories
     {
         Vector2D cartesian2d(double x, double y) const                          { return Vector2D::cartesian(x, y); }
@@ -173,6 +181,29 @@ namespace
     {
         module.add(fun(&create_rectangle3d), "rect3d");
     }
+
+	void add_easing(Module& module)
+	{
+		//module.add(fun(&add_easing), "easing");
+
+
+		auto easing_library = std::make_shared<EasingLibrary>();
+		module.add_global_const(chaiscript::const_var(easing_library), "Easing");
+
+# define BIND(NAME)  module.add(fun(&EasingLibrary::NAME), #NAME)
+		 BIND(quadratic_in);
+		// BIND(ease);
+		//
+		//HIER ALLE BINDINGS VAN DE FUNCTIES vb.ease
+		//
+#   undef BIND
+
+//#define BIND(NAME)
+//		BIND(easing_library);
+//#undef BIND
+
+	}
+	
 }
 
 ModulePtr raytracer::scripting::_private_::create_math_module()
@@ -183,6 +214,7 @@ ModulePtr raytracer::scripting::_private_::create_math_module()
     add_rectangle3d(*module);
     add_angle(*module);
     add_interval(*module);
+	add_easing(*module);
 
     return module;
 }

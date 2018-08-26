@@ -14,5 +14,5 @@ EasingFunction math::functions::easing::linear()
         return t;
     };
 
-    return from_lambda(lambda);
+    return  from_lambda(lambda);
 }

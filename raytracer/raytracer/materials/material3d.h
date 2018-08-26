@@ -5,6 +5,6 @@ namespace raytracer
 {
 	namespace materials
 	{
-		Material translation(math::Vector3D&, Material);
+		Material translation3D(math::Vector3D&, Material);  //VS translation3D
 	}
 }
