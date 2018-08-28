@@ -12,30 +12,22 @@ using namespace math::functions;
 
 EasingFunction math::functions::easing::quadratic_in()
 {
-
+	
 	auto a = 0.0;
 	auto b = 1.0;
 
 	std::function<double(double)> lambda = [a, b](double t) {
 		assert(interval(a, b).contains(t));
-		auto x = b * (t /= 1)*t + a;
+		auto x = b * (t /= 1)*t + a;		//quotient   normaliseerd => tss 0&1
 		return x;
 	};
 
 	return  from_lambda(lambda);
 
 }
-//	auto anim = double_animation(5);
-//	auto value = anim(0.1_s);
-//}
-//Animation<double> double_animation(double from, double to, Duration duration) {
-//
-//		std::function<double(TimeStamp)> lambda = [from, to, duration](TimeStamp now) {
-//			return now.seconds();
-//		};
-//
-//		return make_animation(from_lambda(lambda), 1_s);
-//	}
+
+
+
 //EasingFunction math::functions::easing::quadratic_in()
 //{
 //	//t: start time

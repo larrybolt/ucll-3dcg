@@ -29,6 +29,7 @@ extension MaterialTranslate3D
  extension PrimitiveScaling
  extension MaterialVerticalLines
 extension EasingLibrary
+extension Quadratic
 end
 
 team_member 'Larry' do

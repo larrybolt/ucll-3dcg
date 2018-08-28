@@ -66,7 +66,7 @@ namespace
 	struct EasingLibrary
 	{
 		EasingFunction quadratic_in() const { return math::functions::easing::quadratic_in(); }
-
+		EasingFunction linear() const { return math::functions::easing::linear(); }
 		
 	};
 
@@ -192,7 +192,7 @@ namespace
 
 # define BIND(NAME)  module.add(fun(&EasingLibrary::NAME), #NAME)
 		 BIND(quadratic_in);
-		// BIND(ease);
+		 BIND(linear);
 		//
 		//HIER ALLE BINDINGS VAN DE FUNCTIES vb.ease
 		//
