@@ -130,9 +130,23 @@ EasingFunction math::functions::easing::quadratic_out()
 EasingFunction math::functions::easing::quadratic_inout()
 {
 	std::function<double(double)> lambda = [](double t) {
-		assert(interval(0.0, 1.0).contains(t));
+		double x = 0;
+		assert(interval(0.0, 1).contains(t));
+		//	x= 0.5 * (t /= 0.5)*t + 0;
+		if (t < 0.5) { return 0.5 * (t /= 1)*t + 0; }
+		
+		LOG(INFO) << t;
+		
 
-		return t;
+			return  -0.5 * (t/=1)*(t-2) ;
+		
+		
+
+		//		if ((t /= d / 2) < 1) return ((c / 2)*(t*t)) + b;
+		//		return -c / 2 * (((t - 2)*(--t)) - 1) + b;*/
+		//
+		//		/*
+		//		originally return -c/2 * (((t-2)*(--t)) - 1) + b;
 	};
 
 	return from_lambda(lambda);

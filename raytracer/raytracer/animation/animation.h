@@ -4,6 +4,7 @@
 #include "math/point.h"
 #include "math/interval.h"
 #include "math/functions/easing-functions.h"
+#include "lissajous.h"
 #include "math/angle.h"
 #include "animation/duration.h"
 #include "animation/time-stamp.h"

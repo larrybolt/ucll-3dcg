@@ -42,6 +42,9 @@ namespace
 		{
 			return ease(a, f);
 		}
+		Animation<Point3D> lissajous(const int x, const int y, const int z, const int xf, const int yf, const int zf, const Angle ax, const Angle ay, const Angle az, const Duration& d) const {
+			return animation::lissajous( x,  y,  z,  xf,  yf,  zf,  ax, ay,  az,  d);
+		}
 	};
 
 	Duration seconds(double s)
@@ -71,6 +74,8 @@ ModulePtr raytracer::scripting::_private_::create_animation_module()
     BIND_AS(point_animation, animate);
 	BIND_AS(angle_animation, animate);
 	BIND_AS(ease_animation<double>, ease);
+	BIND_AS(lissajous, lissajous);
+
 	//BIND_AS(ease_animation<Angle>, ease);
 	//BIND_AS(ease_animation<Point3D>, ease);
 	
