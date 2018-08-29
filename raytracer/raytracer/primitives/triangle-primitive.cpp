@@ -69,6 +69,7 @@ namespace
 				initialize_hit(hit.get(), ray, t);
 				hit->normal = -edge2.cross(edge1);
 				hits.push_back(hit);
+				
 			}
 			return hits;
 		}

@@ -26,6 +26,33 @@ EasingFunction math::functions::easing::quadratic_in()
 
 }
 
+//EasingFunction math::functions::easing::quadratic_out2() {
+//
+////TimeStamp == [now]
+//std::function<double(TimeStamp)> lambda = [](TimeStamp now)  {
+//	auto tijdNul = now.zero();
+//double t=now.seconds();
+//auto d=now.from_epoch(Duration::from_seconds(t));
+//	
+//	assert(interval(0.0, 1.0).contains(t));
+//	
+//	
+//	return  (t /= d.seconds())*t;
+//};
+//return from_lambda(lambda);
+//
+//};
+
+
+inline math::Function<TimeStamp(double)> seconds_to_timestamp()
+{
+	std::function<TimeStamp(double)> lambda = [](double seconds) -> TimeStamp {
+		return TimeStamp::from_epoch(Duration::from_seconds(seconds));
+	};
+
+	return math::from_lambda<TimeStamp, double>(lambda);
+}
+
 
 
 //EasingFunction math::functions::easing::quadratic_in()
@@ -93,8 +120,8 @@ EasingFunction math::functions::easing::quadratic_out()
 {
 	std::function<double(double)> lambda = [](double t) {
 		assert(interval(0.0, 1.0).contains(t));
-
-		return t;
+		return -1 * (t /= 1)*(t - 2) + 0;
+		//return t;
 	};
 
 	return from_lambda(lambda);

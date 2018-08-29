@@ -7,6 +7,7 @@ namespace raytracer
 	{
 		
 		Primitive bounding_box_accelerator(Primitive);
-		
+		Primitive bounding_box_accelerator2(Primitive);
+
 	}
 }

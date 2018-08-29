@@ -30,6 +30,7 @@ extension MaterialTranslate3D
  extension MaterialVerticalLines
 extension EasingLibrary
 extension Quadratic
+ extension MeshOptimizing
 end
 
 team_member 'Larry' do
